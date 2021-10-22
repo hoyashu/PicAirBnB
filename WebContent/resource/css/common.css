@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+header {
+	background-color: #FDCD8C;
+	height: 100px;
+}
+
+nav {
+	background-color: #FDE1B4;
+	width: 20%;
+	float: left;
+}
+
+section {
+	background-color: yellow;
+	width: 80%;
+	float: right;
+}
+
+footer {
+	background-color: #FDCD8C;
+	height: 100px;
+	clear: both;
+}
+
+nav, section {
+	min-height: 400px;
+}
