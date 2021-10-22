@@ -6,6 +6,12 @@
 
 
 <jsp:include page="/views/common/header.jsp" flush="false" />
+<style>
+section{
+    width: 100%;
+    float: inherit;
+}
+</style>
 <section>
 	<jsp:include page="${content}" flush="false" />
 </section>

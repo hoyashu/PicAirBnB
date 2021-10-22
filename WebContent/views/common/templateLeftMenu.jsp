@@ -6,6 +6,12 @@
 <c:set var="content" value="${param.content}.jsp" />
 
 <jsp:include page="/views/common/header.jsp" flush="false" />
+<style>
+section {
+	width: 80%;
+	float: right;
+}
+</style>
 <nav>
 	<jsp:include page="${nav}" flush="false" />
 </nav>
