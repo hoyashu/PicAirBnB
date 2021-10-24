@@ -19,7 +19,7 @@ public class CommandFactory {
 		// 로그인 요청
 		map.put("/loginMember.do", "controller.member.LoginMemberCommand");
 		// 회원목록 조회 요청
-		map.put("/listAllMember.do","controller.member.ListAllMemberCommand");
+		map.put("/allMemberList.do","controller.member.AllMemberListCommand");
 	}
 
 	// 외부에서 중복된 생성자를 만드는 것을 방지하기 위해서 싱글톤 작성

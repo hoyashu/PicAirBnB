@@ -8,7 +8,7 @@
 <html lang='ko'>
     <head>
         <meta charset='UTF-8'>
-        <title>게시글 목록보기</title>
+        <title></title>
         <style>
             table {
                 width: 700px;
@@ -36,14 +36,39 @@
             }
 
         </style>
+        <script>
+            $(document).ready(function(){
+            	$(".checkbox").click(function () {
+            		let chekObj = document.getElementsByClassName("checkbox");
+            		let lenth = chekObj.length;
+            		let checked = 0;
+            		let checkboxTest;
+            		
+            		for (i = 0; i < lenth; i++) {
+            		    if (chekObj[i].checked === true) {
+            		      checked += 1;
+            		      checkboxTest = chekObj[i].getAttribute("memNo");
+            		      console.log(checkboxTest);
+            		    }
+            		  }
+            	})         	
+            })
+        </script>
     </head>
 <body>
 <h1>회원 목록 조회</h1>
 
+		<c:url var="url2" value="/withdrawMemberForm.do">
+			<c:param name="memNo" value="${pageScope.member.memNo}"></c:param>
+		</c:url>
+        
+		<div>
+			<button onclick="${pageScope.url2}" type="button" name="withdrawMember" id="withdrawMember">회원 탈퇴</button>
+		</div>	
 <table>
 	<thead>
 	<tr>
-		<th>번호</th><th>닉네임</th><th>등급</th><th>가입일</th><th>방문수</th><th>게시글수</th><th>댓글수</th><th>성별</th>
+		<th></th><th>회원번호</th><th>닉네임</th><th>등급</th><th>가입일</th><th>방문수</th><th>게시글수</th><th>댓글수</th><th>성별</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -51,12 +76,14 @@
 		<tr><td colspan="8">등록한 게시글이 없습니다.</td></tr>
 	</c:if>
 	<c:if test="${not empty requestScope.members}">
+	
 		<c:forEach var="member" items="${requestScope.members}" varStatus="loop">
 		<c:url var="url" value="/modifyMember.do">
-			<c:param name="no" value="${pageScope.member.memNo}"></c:param>
+			<c:param name="memNo" value="${pageScope.member.memNo}"></c:param>
 		</c:url>
 			<tr>
-				<td>${requestScope.totalPostCount - (param.currentPage - 1) * requestScope.postSize - loop.index}</td>
+				<td><input type="checkbox" value="${pageScope.member.memNo}" class="checkbox" name="checkbox"></td>
+				<td>${pageScope.member.memNo}</td>
 				<td><a href="${pageScope.url}">${pageScope.member.nick}</a></td>
 				<td>${pageScope.member.grade}</td>
 				<td>${pageScope.member.joinDate}</td>
@@ -79,7 +106,7 @@
 	<c:set var="currentPage" value="${param.currentPage}" scope="page"/>
 	
 	<c:if test="${startPage > pageBlock}">
-		<c:url var="prevUrl" value="/listAllMember.do">
+		<c:url var="prevUrl" value="/allMemberList.do">
 				<c:param name="currentPage" value="${startPage - pageBlock}"/>
 		</c:url>
 		<a href="${prevUrl}">[Prev]</a> 
@@ -89,14 +116,14 @@
 			&nbsp;${i}&nbsp;
 		</c:if>
 		<c:if test="${i != currentPage}">
-			<c:url var="url" value="/listAllMember.do">
+			<c:url var="url" value="/allMemberList.do">
 				<c:param name="currentPage" value="${i}"/>
 			</c:url>
 			<a href="${url}">&nbsp;${i}&nbsp;</a>
 		</c:if>	
 	</c:forEach>
 	<c:if test="${endPage < totalPage}">
-		<c:url var="nextUrl" value="/listAllMember.do">
+		<c:url var="nextUrl" value="/allMemberList.do">
 				<c:param name="currentPage" value="${endPage + 1}"/>
 		</c:url>
 		<a href="${nextUrl}">[Next]</a> 

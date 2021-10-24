@@ -11,9 +11,9 @@ import domain.MemberVo;
 import model.service.MemberService;
 
 
-public class ListAllMemberCommand implements Command {
-	private static final int POST_PER_PAGE = 5;
-	private static final int PAGE_BLOCK = 3;
+public class AllMemberListCommand implements Command {
+	private static final int POST_PER_PAGE = 10;
+	private static final int PAGE_BLOCK = 5;
 	
 	@Override
 	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -61,6 +61,6 @@ public class ListAllMemberCommand implements Command {
 				req.setAttribute("totalPostCount", totalPostCount);
 				req.setAttribute("postSize", POST_PER_PAGE);
 				
-				return new ActionForward("/listAllMember.jsp?currentPage=" + currentPage, false);
+				return new ActionForward("/allMemberList.jsp?currentPage=" + currentPage, false);
 			}
 	}
