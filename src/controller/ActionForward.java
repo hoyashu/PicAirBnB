@@ -31,7 +31,4 @@ public class ActionForward {
 		this.isRedirect = isRedirect;
 	}
 
-	
-	
-
 }

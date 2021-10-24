@@ -9,16 +9,17 @@ public class CommandFactory {
 	private Map<String, String> map = new HashMap<String, String>();
 
 	private CommandFactory() {
-		//아래 예시임
-		// 게시글 쓰기 폼 요청
-		map.put("/writeBoardForm.do", "controller.WriteBoardFormCommand");
 		
-		// 게시글 목록
-		map.put("/listBoard.do", "controller.ListBoardCommand");
-		
-		// 게시글 읽기 요청
-		map.put("/detailBoard.do", "controller.DetailBoardCommand");
-		
+		// 회원 등록 폼 요청
+		map.put("/writeMemberForm.do", "controller.member.WriteMemberFormCommand");
+		// 회원 등록 요청
+		map.put("/writeMember.do", "controller.member.WriteMemberCommand");
+		// 로그인 폼 요청
+		map.put("/loginMemberForm.do", "controller.member.LoginMemberFormCommand");
+		// 로그인 요청
+		map.put("/loginMember.do", "controller.member.LoginMemberCommand");
+		// 회원목록 조회 요청
+		map.put("/listAllMember.do","controller.member.ListAllMemberCommand");
 	}
 
 	// 외부에서 중복된 생성자를 만드는 것을 방지하기 위해서 싱글톤 작성
