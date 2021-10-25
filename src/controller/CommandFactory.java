@@ -9,16 +9,24 @@ public class CommandFactory {
 	private Map<String, String> map = new HashMap<String, String>();
 
 	private CommandFactory() {
-		//아래 예시임
-		// 게시글 쓰기 폼 요청
-		map.put("/writeBoardForm.do", "controller.WriteBoardFormCommand");
-		
-		// 게시글 목록
-		map.put("/listBoard.do", "controller.ListBoardCommand");
-		
-		// 게시글 읽기 요청
-		map.put("/detailBoard.do", "controller.DetailBoardCommand");
-		
+		// 이벤트 목록 조회
+		map.put("/EventList.do", "controller.event.ListEventCommand");
+
+		// 알림 발송
+		map.put("/SendAlarm.do", "controller.alarm.WriteAlarmCommand");
+
+		// 회원별 읽지 않은 알림 개수 조회
+		map.put("/AlarmNoReadCount.do", "controller.alarm.CountNoReadAlarmCommand");
+
+		// 회원별 알림 목록 조회
+		map.put("/AlarmList.do", "controller.alarm.ListAlarmCommand");
+
+		// 회원별 알림 선택 삭제
+		map.put("/AlarmDelete.do", "controller.alarm.CancelAlarmCommand");
+
+		// 회원별 알림 전체 삭제
+		map.put("/AlarmAllDelete.do", "controller.alarm.CancelAllAlarmCommand");
+
 	}
 
 	// 외부에서 중복된 생성자를 만드는 것을 방지하기 위해서 싱글톤 작성
@@ -44,11 +52,11 @@ public class CommandFactory {
 			// class 클래스의 생성자를 취득한다.
 			Constructor<?> constructor = cls.getConstructor(null);
 			System.out.println("constructor:" + constructor);
-			
+
 			// 생성자를 통해 newInstance 함수를 호출하여 Node 인스턴스를 생성한다
 			Command command = (Command) constructor.newInstance();// 다형성
 			return command;
-			
+
 		} catch (Exception e) {
 			throw e;
 		}
