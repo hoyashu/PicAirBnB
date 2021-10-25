@@ -52,6 +52,20 @@ public class MemberVo {
 		this.grade = grade;
 	}
 	
+	
+	
+	public MemberVo(int memNo, String id, String pwd, String name, String nick, String gender, String hp,
+			String birth) {
+		super();
+		this.memNo = memNo;
+		this.id = id;
+		this.pwd = pwd;
+		this.name = name;
+		this.nick = nick;
+		this.gender = gender;
+		this.hp = hp;
+		this.birth = birth;
+	}
 	public MemberVo(String id, String pwd, String name, String nick, String gender, String hp, String birth) {
 		super();
 		this.id = id;

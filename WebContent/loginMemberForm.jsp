@@ -47,7 +47,7 @@
                 
                 </form>
                 
-                <input type="text"  value="${param.memNo}">
+                <%-- <input type="text"  value="${param.memNo}"> --%>
                 
 				<c:if test="${not empty sessionScope.message}">
 					<span style="color : red;">${sessionScope.message}</span>

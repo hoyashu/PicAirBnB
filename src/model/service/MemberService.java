@@ -28,9 +28,9 @@ public class MemberService {
 		memberDao.insertMember(member);
 	}
 	
-	public MemberVo retrieveMember(String id, String pwd) throws Exception{
+	public MemberVo loginMember(String id, String pwd) throws Exception{
 		MemberDao memberDao  = MemberDao.getInstance();
-		return memberDao.selectMember(id, pwd);
+		return memberDao.loginMember(id, pwd);
 	}
 	
 	public ArrayList<MemberVo> retrieveMemberList(int startRow, int postSize) throws Exception{
@@ -38,10 +38,19 @@ public class MemberService {
 		return memberDao.selectMemberList(startRow, postSize);
 			
 	}
-	// 총 멤버 수를 구하다
-		public int retrieveTotalMemberCount() throws Exception {
-			return MemberDao.getInstance().selectTotalMemberCount();
-		}
 	
+	public int retrieveTotalMemberCount() throws Exception {
+		return MemberDao.getInstance().selectTotalMemberCount();
+	}
+	// 회원 조회
+	public void reviseMember(MemberVo member) throws Exception{
+		MemberDao memberDao  = MemberDao.getInstance();
+		memberDao.updateMember(member);
+	}
+	// 회원 수정
+	public MemberVo retrieveMember(int memNo) throws Exception{
+		MemberDao memberDao  = MemberDao.getInstance();
+		return memberDao.selectMember(memNo);
+	}
 	
 }

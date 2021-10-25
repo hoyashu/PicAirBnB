@@ -20,6 +20,17 @@ public class CommandFactory {
 		map.put("/loginMember.do", "controller.member.LoginMemberCommand");
 		// 회원목록 조회 요청
 		map.put("/allMemberList.do","controller.member.AllMemberListCommand");
+		// 탈퇴회원 목록 조회 요청
+		map.put("/withdrawMemberList.do","controller.member.WithdrawMemberListCommand");
+		// 회원 정보 조회 요청
+		map.put("/detailMember.do","controller.member.DetailMemberCommand");
+		// 회원 정보 수정 요청
+		map.put("/modifyMember.do","controller.member.ModifyMemberCommand");
+		// 회원 탈퇴 폼 요청
+		map.put("/withdrawMemberForm.do","controller.member.WithdrawMemberFormCommand");
+		// 회원 탈퇴 요청
+		map.put("/withdrawMember.do","controller.member.WithdrawMemberCommand");
+		
 	}
 
 	// 외부에서 중복된 생성자를 만드는 것을 방지하기 위해서 싱글톤 작성

@@ -52,7 +52,6 @@ public class MemberDao {
 				
 				pstmt.executeUpdate();
 				
-				
 			} catch (Exception e) {
 				throw e;
 			} finally {
@@ -67,8 +66,8 @@ public class MemberDao {
 			}
 		}
 		
-		// 회원 조회
-		public MemberVo selectMember(String id, String pwd) throws Exception {
+		// 로그인
+		public MemberVo loginMember(String id, String pwd) throws Exception {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -77,7 +76,7 @@ public class MemberDao {
 				conn = DBConn.getConnection();
 				
 				StringBuffer sql = new StringBuffer();
-				sql.append("select mb_no, mb_id, mb_nick from member "); 
+				sql.append("select mb_no, mb_id, mb_nick, mb_grade from member "); 
 				sql.append("where mb_id = ? and mb_pwd = ? ");
 		
 				pstmt = conn.prepareStatement(sql.toString());
@@ -93,6 +92,7 @@ public class MemberDao {
 						member.setMemNo(rs.getInt(1));
 						member.setId(rs.getString(2));
 						member.setNick(rs.getString(3));
+						member.setGrade(rs.getInt(4));
 						
 				}
 				
@@ -185,5 +185,95 @@ public class MemberDao {
 					}	
 					
 					return count;
+				}
+				
+				// 회원 수정
+				public void updateMember(MemberVo member) throws Exception {
+					
+					Connection conn = null;
+					PreparedStatement pstmt = null;
+					Statement stmt = null;
+					ResultSet rs = null;
+
+					try {
+						conn = DBConn.getConnection();
+						
+						StringBuffer sql = new StringBuffer();
+						sql.append("UPDATE member ");
+						sql.append("SET mb_id = ?, mb_pwd = ?, mb_name = ?, mb_nick = ?, mb_gender = ?, mb_hp = ?, mb_datetime = ? " );
+						sql.append("WHERE mb_no = ?;");
+						pstmt = conn.prepareStatement(sql.toString());
+						
+						pstmt.setString(1, member.getId());
+						pstmt.setString(2, member.getNick());
+						pstmt.setString(3, member.getName());
+						pstmt.setString(4, member.getPwd());
+						pstmt.setString(5, member.getGender());
+						pstmt.setString(6, member.getHp());
+						pstmt.setString(7, member.getBirth());
+						pstmt.setInt(1, member.getMemNo());
+						
+						pstmt.executeUpdate();
+						
+						
+					} catch (Exception e) {
+						throw e;
+					} finally {
+						try {
+							if(rs != null) rs.close();
+							if(stmt != null) stmt.close();
+							if(pstmt != null) pstmt.close();
+							if(conn != null) conn.close(); 
+						} catch (Exception e2) {
+							throw e2;
+						}
+					}
+				}
+				
+				// 회원 조회
+				public MemberVo selectMember(int memNo) throws Exception {
+					Connection conn = null;
+					PreparedStatement pstmt = null;
+					ResultSet rs = null;
+					MemberVo member = new MemberVo();
+					try {
+						conn = DBConn.getConnection();
+						
+						StringBuffer sql = new StringBuffer();
+						sql.append("select mb_no, mb_id, mb_nick, mb_name, mb_pwd, mb_gender, mb_hp, mb_birth from member  "); 
+						sql.append("where mb_no = ?;");
+				
+						pstmt = conn.prepareStatement(sql.toString());
+						
+						pstmt.setInt(1, member.getMemNo());
+						
+						rs = pstmt.executeQuery();
+						
+						
+						while(rs.next()) {
+								
+								member.setMemNo(rs.getInt(1));
+								member.setId(rs.getString(2));
+								member.setNick(rs.getString(3));
+								member.setName(rs.getString(1));
+								member.setPwd(rs.getString(2));
+								member.setGender(rs.getString(3));
+								member.setHp(rs.getString(3));
+								member.setBirth(rs.getString(3));
+								
+						}
+						
+					} catch (Exception e) {
+						throw e;
+					} finally {
+						try {
+							if (rs != null) rs.close();
+							if (pstmt != null) pstmt.close();
+							if (conn != null) conn.close();
+						} catch (Exception e2) {
+							throw e2;
+						}
+					}		
+					return member;
 				}
 }
