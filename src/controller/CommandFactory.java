@@ -9,15 +9,24 @@ public class CommandFactory {
 	private Map<String, String> map = new HashMap<String, String>();
 
 	private CommandFactory() {
-		//아래 예시임
-		// 게시글 쓰기 폼 요청
-		map.put("/writeBoardForm.do", "controller.WriteBoardFormCommand");
+		// 게시글 리스트 요청
+		map.put("/listPost.do", "controller.board.ListPostCommand");
 		
-		// 게시글 목록
-		map.put("/listBoard.do", "controller.ListBoardCommand");
+		// 게시글 작성 폼 요청
+		map.put("/writePostForm.do", "controller.board.WritePostFormCommand");
 		
-		// 게시글 읽기 요청
-		map.put("/detailBoard.do", "controller.DetailBoardCommand");
+		// 게시글 상세보기 요청 
+		map.put("/detailPost.do", "controller.board.DetailPostCommand");
+		
+		// 게시글 수정 폼 요청 
+		map.put("/modifyPostForm.do", "controller.board.ModifyPostFormCommand");
+		
+		// 첨부 파일 삭제 요청 
+		map.put("/cancelPostAttach.do", "controller.board.CancelPostAttachCommand");
+		
+		// 게시글 삭제 요청 
+		map.put("/cancelPost.do", "controller.board.CancelPostCommand");
+		
 		
 	}
 
