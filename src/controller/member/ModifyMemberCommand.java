@@ -15,6 +15,7 @@ public class ModifyMemberCommand implements Command {
 	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// 회원 수정 요청을 처리할 커맨드
 		//1. 사용자 가 입력한 회원 정보를 구한다.
+		
 		HttpSession session = req.getSession();
 		
 		MemberVo member = (MemberVo)session.getAttribute("member");
@@ -35,7 +36,7 @@ public class ModifyMemberCommand implements Command {
 		MemberService service = MemberService.getInstance();
 		service.registerMember(new MemberVo(memNo, id, pwd, name, nick, gender, hp, birth));
 		
-		return new ActionForward("/modifyMemberForm.jsp", true);
+		return new ActionForward("/member_modify.jsp", true);
 				
 		} catch (Exception ex) {
 			throw ex;
