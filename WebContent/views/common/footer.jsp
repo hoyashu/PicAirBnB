@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="java.util.*,model.dao.statistic.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -16,12 +17,9 @@
       <div class="visit-count">
          <ul>
             <li><p class="total">전체 방문자 : ${pageScope.total }</p></li>
-               
             <li><p class="today">오늘 방문자 : ${pageScope.today }</p></li>
-               
          </ul>
       </div>
    </div>
 </footer>
 </body>
-</html>

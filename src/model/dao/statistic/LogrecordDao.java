@@ -289,7 +289,7 @@ public class LogrecordDao {
 
 	}
 
-	// 7일간 게시글 수를 구한다.
+	// 30일간 게시글 수를 구한다.
 	public ArrayList<Integer> selectMonthlyPostCount() throws Exception {
 
 		Connection conn = null;
@@ -333,5 +333,52 @@ public class LogrecordDao {
 		return typeOfGraphPostCounts;
 
 	}
+	
+	//로그 정보 저장하기
+	public void insertLogrecord(String userIp,String userId ) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBConn.getConnection();
+			
+			StringBuffer sql = new StringBuffer();
+			sql.append("INSERT INTO logrecord (mb_ip, mb_id, mb_log ) ");
+			sql.append("VALUES ( ?, ? , now() ) ");
+			pstmt = conn.prepareStatement(sql.toString());
+			
+			pstmt.setString(1, userIp);
+			pstmt.setString(2, userId);
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				throw e2;
+			}
+		}
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
