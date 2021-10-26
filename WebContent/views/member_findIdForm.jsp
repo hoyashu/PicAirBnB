@@ -2,16 +2,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<form id="findIdform" onsubmit="return false;">
-    <input type="text" name="name" id="name" placeholder="이름"> <input type="text" name="birth" id="birth"
-        placeholder="00000000">
-    <p>생년월일은 8자로 입력할 것</p>
-    <p>2002년 9월 10일 생인 경우 : 20020910 작성</p>
 
-    <div>
-        <input id="submit_value" type="button" name="submit_value" value="아이디찾기">
+<div id="findIdForm" class="d-flex">
+<form class="row justify-content-center align-self-center form-small">
+    <h2 class="text-center page-title">아이디 찾기</h2>
+    <div class="mb-3">
+        <label for="name">이름</label> <input type="text" class="form-control" name="name" id="name">
     </div>
-</form>
+    <div class="mb-3">
+        <label for="birthDay">생년월일</label><input type="date" class="form-control" name="birth" id="birth"
+            placeholder="00000000">
+        <small class="text-muted">2002년 9월 10일 생인 경우 : 20020910 작성</small>
+    </div>
+    <hr class="my-4">
+    <button class="w-100 btn btn-lg btn-primary" type="submit" id="submit_value">아이디찾기</button>
+    </form>
+</div>
 <script type="text/javascript">
     document.getElementById("submit_value").onclick = submitAction;
     //생년월일 유효성 체크
