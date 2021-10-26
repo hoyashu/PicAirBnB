@@ -29,26 +29,29 @@
                  var memNoList = getParameter("memNoList");
                  var nickList = getParameter("nickList");
 
-                 console.log("memNoList : "+memNoList);
-                 //console.log("nickList : "+nickList);
+                 console.log("memNoList : "+ memNoList);
+                 console.log("nickList : "+ nickList);
                  
                  nickList = nickList.split(',');
-                 console.log(nickList);
+                 memNoList = memNoList.split(',');
+                 
+                 
                  var htmlstr = "";
+                 var htmlint = "";
+                 
                  for (var i = 0; i < nickList.length; i++) {
                 	 htmlstr += nickList[i]+"\n";
-				}
+				 }
+                 
+                 for (var i = 0; i < memNoList.length; i++) {
+                	 htmlint += memNoList[i];
+				 }
+                 
+                 console.log(htmlstr);
+                 
+                 $('#hidden').val(htmlint)
                  $('#nickNames').val(htmlstr)
-       				/* var val = location.href.substr(
-       		                location.href.lastIndexOf('=') + 1
-       		            );
-
-       				console.log(val);
-       				
-       			 	$('#nickNames').val(val.split(", ")); */
-       			 	
-       			 	
-       		
+                 
             });
              
 
@@ -60,7 +63,9 @@
         <article>
             <div class="container" role="main">
                 <h2>강제 탈퇴 팝업</h2>
-                <form action="${pageContext.request.contextPath}/withdrawMember.do" method="post">
+                <form action="${pageContext.request.contextPath}/member_withdraw.do" method="post">
+                	
+                	<input type="hidden" name="memNoList" id="memNoList">
                 	
                 	<div class="mb-3">
                         <label for="nickNames">강제 탈퇴 회원</label>

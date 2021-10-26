@@ -1,11 +1,20 @@
 package domain;
 
+
+
 public class MemberStateVo {
 	private int stateNo;
 	private int memNo;
 	private String reason;
 	private String withdrawDate;
 	
+	
+	public MemberStateVo(int memNo, String reason) {
+		super();
+		this.memNo = memNo;
+		this.reason = reason;
+	}
+
 	public MemberStateVo() {
 		super();
 	}

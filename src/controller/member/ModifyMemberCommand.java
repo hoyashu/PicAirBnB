@@ -35,7 +35,7 @@ public class ModifyMemberCommand implements Command {
 		MemberService service = MemberService.getInstance();
 		service.registerMember(new MemberVo(memNo, id, pwd, name, nick, gender, hp, birth));
 		
-		return new ActionForward("/modifyMemberForm.jsp", true);
+		return new ActionForward("/member_modify.jsp", true);
 				
 		} catch (Exception ex) {
 			throw ex;

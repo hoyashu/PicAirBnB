@@ -23,7 +23,7 @@
         <article>
             <div class="container" role="main">
                 <h2>로그인</h2>
-                <form action="${pageContext.request.contextPath}/loginMember.do" method="post">
+                <form action="${pageContext.request.contextPath}/member_login.do" method="post">
                 
                     <div class="mb-3">
                         <label for="id">이메일</label>

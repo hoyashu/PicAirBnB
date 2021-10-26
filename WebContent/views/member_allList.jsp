@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.*, domain.MemberVo" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -51,7 +51,7 @@
             			memNo_arr.push(temp[0]);
             			nick_arr.push(temp[1]);            			
             		});            	
-       				location.href = '${pageContext.request.contextPath}/withdrawMemberForm.do?memNoList='+ 
+       				location.href = '${pageContext.request.contextPath}/member_withdrawForm.do?memNoList='+ 
        				memNo_arr.join(",") + "&nickList=" + nick_arr.join(",");
             	});
             	       	
@@ -62,11 +62,7 @@
     </head>
 <body>
 <h1>회원 목록 조회</h1>
-
-		<%-- <c:url var="url2" value="/loginMemberForm.do">
-			<c:param name="memNo" value="${pageScope.members.memNo}"></c:param>
-		</c:url> --%>
-        
+  
 		<div>
 			<button type="button" name="withdrawMember" id="withdrawMemberBtn">회원 탈퇴</button>
 		</div>	
@@ -86,7 +82,7 @@
 	
 		<c:forEach var="member" items="${requestScope.members}" varStatus="loop">
 		
-		<c:url var="url" value="/modifyMember.do">
+		<c:url var="url" value="/member_modify.do">
 			<c:param name="memNo" value="${pageScope.member.memNo}"></c:param>
 		</c:url>
 		
@@ -117,7 +113,7 @@
 	<c:set var="currentPage" value="${param.currentPage}" scope="page"/>
 	
 	<c:if test="${startPage > pageBlock}">
-		<c:url var="prevUrl" value="/allMemberList.do">
+		<c:url var="prevUrl" value="/member_allList.do">
 				<c:param name="currentPage" value="${startPage - pageBlock}"/>
 		</c:url>
 		<a href="${prevUrl}">[Prev]</a> 
@@ -127,14 +123,14 @@
 			&nbsp;${i}&nbsp;
 		</c:if>
 		<c:if test="${i != currentPage}">
-			<c:url var="url" value="/allMemberList.do">
+			<c:url var="url" value="/member_allList.do">
 				<c:param name="currentPage" value="${i}"/>
 			</c:url>
 			<a href="${url}">&nbsp;${i}&nbsp;</a>
 		</c:if>	
 	</c:forEach>
 	<c:if test="${endPage < totalPage}">
-		<c:url var="nextUrl" value="/allMemberList.do">
+		<c:url var="nextUrl" value="/member_allList.do">
 				<c:param name="currentPage" value="${endPage + 1}"/>
 		</c:url>
 		<a href="${nextUrl}">[Next]</a> 

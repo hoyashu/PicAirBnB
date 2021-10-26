@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-
 <!DOCTYPE html>
 <html lang='ko'>
 
@@ -18,7 +17,7 @@
         <article>
             <div class="container" role="main">
                 <h2>회원가입</h2>
-                <form action="${pageContext.request.contextPath}/writeMember.do" method="post">
+                <form action="${pageContext.request.contextPath}/member_write.do" method="post">
                 
                     <div class="mb-3">
                         <label for="id">이메일</label>

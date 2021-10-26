@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
         <article>
             <div class="container" role="main">
                 <h2>정보수정</h2>
-                <form action="${pageContext.request.contextPath}/modifyMember.do" method="post">
+                <form action="${pageContext.request.contextPath}/member_modify.do" method="post">
                 
                     <div class="mb-3">
                         <label for="id">이메일</label>

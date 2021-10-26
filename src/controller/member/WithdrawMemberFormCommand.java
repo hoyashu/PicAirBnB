@@ -26,11 +26,12 @@ public class WithdrawMemberFormCommand implements Command {
 		 for(int i=0;i<nick.length; i++) { 
 			 nicks[i] = nick[i];
 		 }
-		 
+		 System.out.println(memNos);
+		 System.out.println(nickList);
 		 req.setAttribute("memNos", memNos);
 		 req.setAttribute("nickList", nickList);
 		 
-		ActionForward foward = new ActionForward("/withdrawMemberForm.jsp", false);
+		ActionForward foward = new ActionForward("/member_withdrawForm.jsp", false);
 		return foward;
 	}
 

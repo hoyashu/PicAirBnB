@@ -19,15 +19,21 @@ private static MemberStateService service;
 		}
 		return service;
 	}
-		public ArrayList<MemberStateVo> retrieveMemberStateList(int startRow, int postSize) throws Exception{
-			MemberStateDao memberstateDao = MemberStateDao.getInstance();
-			return memberstateDao.selectMemberStateList(startRow, postSize);
-				
-		}
 		
-		public int retrieveTotalMemberStateCount() throws Exception {
-			return MemberStateDao.getInstance().selectTotalMemberStateCount();
-		}
+	public void registerMemberState(MemberStateVo memberStateVo) throws Exception{
+		MemberStateDao memberStateDao  = MemberStateDao.getInstance();
+		memberStateDao.insertMemberState(memberStateVo);
 	}
+	
+	public ArrayList<MemberStateVo> retrieveMemberStateList(int startRow, int postSize) throws Exception{
+		MemberStateDao memberstateDao = MemberStateDao.getInstance();
+		return memberstateDao.selectMemberStateList(startRow, postSize);
+			
+	}
+	
+	public int retrieveTotalMemberStateCount() throws Exception {
+		return MemberStateDao.getInstance().selectTotalMemberStateCount();
+	}
+}
 	
 

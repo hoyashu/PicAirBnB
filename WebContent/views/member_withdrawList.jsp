@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, domain.MemberVo" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -39,19 +39,7 @@
         <script>
             $(document).ready(function(){
             	$(".checkbox").click(function () {
-            		let chekObj = document.getElementsByClassName("checkbox");
-            		let lenth = chekObj.length;
-            		let checked = 0;
-            		let checkboxTest;
-            		
-            		for (i = 0; i < lenth; i++) {
-            		    if (chekObj[i].checked === true) {
-            		      checked += 1;
-            		      checkboxTest = chekObj[i].getAttribute("memNo");
-            		      console.log(checkboxTest);
-            		    }
-            		  }
-            	})         	
+            		        	
             })
        
 
@@ -60,7 +48,7 @@
 <body>
 <h1>탈퇴 회원 관리</h1>
 
-		<c:url var="url2" value="/withdrawMemberForm.do">
+		<c:url var="url2" value="/member_withdrawList.do">
 			<c:param name="memNo" value="${pageScope.member.memNo}"></c:param>
 		</c:url>
         
@@ -108,7 +96,7 @@
 	<c:set var="currentPage" value="${param.currentPage}" scope="page"/>
 	
 	<c:if test="${startPage > pageBlock}">
-		<c:url var="prevUrl" value="/withdrawMemberList.do">
+		<c:url var="prevUrl" value="/member_withdrawList.do">
 				<c:param name="currentPage" value="${startPage - pageBlock}"/>
 		</c:url>
 		<a href="${prevUrl}">[Prev]</a> 
@@ -118,14 +106,14 @@
 			&nbsp;${i}&nbsp;
 		</c:if>
 		<c:if test="${i != currentPage}">
-			<c:url var="url" value="/withdrawMemberList.do">
+			<c:url var="url" value="/member_withdrawList.do">
 				<c:param name="currentPage" value="${i}"/>
 			</c:url>
 			<a href="${url}">&nbsp;${i}&nbsp;</a>
 		</c:if>	
 	</c:forEach>
 	<c:if test="${endPage < totalPage}">
-		<c:url var="nextUrl" value="/withdrawMemberList.do">
+		<c:url var="nextUrl" value="/member_withdrawList.do">
 				<c:param name="currentPage" value="${endPage + 1}"/>
 		</c:url>
 		<a href="${nextUrl}">[Next]</a> 
