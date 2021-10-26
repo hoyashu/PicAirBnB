@@ -17,9 +17,7 @@
       <div class="visit-count">
          <ul>
             <li><p class="total">전체 방문자 : ${pageScope.total }</p></li>
-               
             <li><p class="today">오늘 방문자 : ${pageScope.today }</p></li>
-               
          </ul>
       </div>
    </div>
