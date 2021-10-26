@@ -9,17 +9,44 @@ public class CommandFactory {
 	private Map<String, String> map = new HashMap<String, String>();
 
 	private CommandFactory() {
-
-		//아래 예시임
-		// 게시글 쓰기 폼 요청
-		map.put("/writeBoardForm.do", "controller.WriteBoardFormCommand");
-		
-		// 게시글 목록
-		map.put("/listBoard.do", "controller.ListBoardCommand");
-		
-		// 게시글 읽기 요청
-		map.put("/detailBoard.do", "controller.DetailBoardCommand");
-		
+     //******** 회원 ********//
+		// 회원 등록 폼 요청
+		map.put("/member_writeForm.do", "controller.member.WriteMemberFormCommand");
+    
+		// 회원 등록 요청
+		map.put("/member_write.do", "controller.member.WriteMemberCommand");
+    
+		// 로그인 요청
+		map.put("/member_login.do", "controller.member.LoginMemberCommand");
+    
+		// 로그아웃 요청
+		map.put("/member_logout.do", "controller.member.LogoutMemberCommand");
+    
+		// 회원목록 조회 요청
+		map.put("/member_allList.do", "controller.member.AllMemberListCommand");
+    
+		// 탈퇴회원 목록 조회 요청
+		map.put("/member_withdrawList.do", "controller.member.WithdrawMemberListCommand");
+    
+		// 아이디 찾기
+		map.put("/member_findId.do", "controller.member.FindIdMemberCommand");
+    
+		// 비밀번호 찾기 인증 메일 발송
+		map.put("/member_sendCertifyCode.do", "controller.member.SendMemberMailCommand");
+    
+		// 회원 정보 수정 폼 요청
+		map.put("/member_detailForm.do", "controller.member.ModifyMemberFormCommand");
+    
+		// 회원 정보 수정 요청
+		map.put("/member_modify.do", "controller.member.ModifyMemberCommand");
+    
+		// 회원 탈퇴 폼 요청
+		map.put("/member_withdrawForm.do", "controller.member.WithdrawMemberFormCommand");
+    
+		// 회원 탈퇴 요청
+		map.put("/member_withdraw.do", "controller.member.WithdrawMemberCommand");
+    
+    //******** 통계 ********//
 		// 멤버 로그 리스트 요청
 		map.put("/MemberLog_List.do", "controller.statistic.ListMemberLogCommand");
 		
@@ -29,6 +56,7 @@ public class CommandFactory {
 		// 멤버 로그 그래프 요청
 		map.put("/MemberLog_WeeklyGraph.do", "controller.statistic.ListMemberLogWeeklyGraphCommand");
 		
+    //******** 쪽지 ********//
 		// 쪽지 쓰기 폼 요청
 		map.put("/Note_WriteNoteForm.do", "controller.note.WriteNoteFormCommand");
 		
@@ -59,9 +87,11 @@ public class CommandFactory {
 		// 보관함 쪽지 상세 조회
 		map.put("/Note_DetailSaveNote.do", "controller.note.DetailSaveNoteCommand");
 
+    //******** 이벤트 ********//
 		// 이벤트 목록 조회
 		map.put("/EventList.do", "controller.event.ListEventCommand");
 
+    //********  ********//
 		// 알림 발송
 		map.put("/SendAlarm.do", "controller.alarm.WriteAlarmCommand");
 

@@ -7,14 +7,24 @@
 <html lang="ko">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>PicAirBnB</title>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/reset.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/common.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PicAirBnB</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resource/css/reset.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
 
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resource/js/common.js">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resource/css/common.css">
+
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resource/js/jquery-1.11.0.min.js"></script>
+
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resource/js/common.js">
 	</script>
 </head>
 
@@ -22,7 +32,7 @@
 	<header>
 		<div class="header-inner">
 			<div class="logo">
-				<img src="" alt="logo">
+				<a href="${pageContext.request.contextPath}/index.jsp"><img src="" alt="logo"></a>
 			</div>
 			<nav>
 				<ul>
@@ -43,21 +53,41 @@
 			</nav>
 			<div class="util">
 				<ul>
-					<li class="user-alarm"><span id="alarmListBtn">알림</span><span class="notion"></span>
-						<div id="alarm-box">
+					<c:if test="${empty sessionScope.member.id}">
+						<li class="join"><a
+							href="${pageContext.request.contextPath}/member_writeForm.do">회원가입</a></li>
+						<li class="login"><a
+							href="${pageContext.request.contextPath}/member_login.jsp">로그인</a></li>
 
-						</div>
-					</li>
-					<li class="user-note">쪽지<span class="notion"><i class="ico">3</i></span></li>
-					<li><img src="" alt="등급아이콘" class="user-ico"><span class="user-name">홍길동</span><span
-							class="arrow-bottom">▼</span></li>
+					</c:if>
+					<c:if test="${!empty sessionScope.member.id}">
+						<li class="user-alarm"><span id="alarmListBtn">알림</span><span
+							class="notion"></span>
+							<div id="alarm-box"></div></li>
+						<li class="user-note">쪽지<span class="notion"><i
+								class="ico">3</i></span></li>
+						<li><img src="" alt="등급아이콘" class="user-ico"> <span
+							class="user-name">${sessionScope.member.nick}</span> <span
+							class="arrow-bottom">▼</span>
+							<div>
+								<ul>
+									<li><a href="">나의 숙소 리뷰</a></li>
+									<li><a href="">내가 쓴 게시글</a></li>
+									<li><a href="">등업신청</a></li>
+									<li><a
+										href="${pageContext.request.contextPath}/member_detailForm.do">정보수정</a></li>
+									<li><a
+										href="${pageContext.request.contextPath}/member_logout.do">로그아웃</a></li>
+								</ul>
+							</div>
+							</li>
+					</c:if>
 				</ul>
 			</div>
 		</div>
 		<script>
 			$(document).ready(function () {
-				//임시코드
-				const memNo = 1;
+				const memNo = ${sessionScope.member.memNo};
 				const alarmType = ['새 댓글', '등업', '이벤트 당첨', '게시글 신고', '댓글 신고', '알림']
 
 				//******알림 목록 조회AJAX 시작*******//
