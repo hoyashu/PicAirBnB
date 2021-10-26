@@ -67,6 +67,31 @@ public class CommandFactory {
 		map.put("/member_withdrawForm.do", "controller.member.WithdrawMemberFormCommand");
 		// 회원 탈퇴 요청
 		map.put("/member_withdraw.do", "controller.member.WithdrawMemberCommand");
+
+		// 게시글 리스트 요청
+		map.put("/listPost.do", "controller.board.ListPostCommand");
+
+		// 게시글 작성 폼 요청
+		map.put("/writePostForm.do", "controller.board.WritePostFormCommand");
+
+		// 게시글 상세보기 요청
+		map.put("/detailPost.do", "controller.board.DetailPostCommand");
+
+		// 게시글 수정 폼 요청
+		map.put("/modifyPostForm.do", "controller.board.ModifyPostFormCommand");
+
+		// 첨부 파일 삭제 요청
+		map.put("/cancelPostAttach.do", "controller.board.CancelPostAttachCommand");
+
+		// 게시글 삭제 요청
+		map.put("/cancelPost.do", "controller.board.CancelPostCommand");
+
+		// 댓글 등록
+		map.put("/addComment.do", "controller.board.AddCommentCommand");
+		// 댓글 수정
+		map.put("/modifyComment.do", "controller.board.ModifyCommentCommand");
+		// 댓글 삭제
+		map.put("/removeComment.do", "controller.board.RemoveCommentCommand");
 	}
 
 	// 외부에서 중복된 생성자를 만드는 것을 방지하기 위해서 싱글톤 작성
