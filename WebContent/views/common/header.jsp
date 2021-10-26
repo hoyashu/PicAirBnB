@@ -82,14 +82,12 @@
 							</div>
 							</li>
 					</c:if>
-					
 				</ul>
 			</div>
 		</div>
 		<script>
 			$(document).ready(function () {
-				//임시코드
-				const memNo = 1;
+				const memNo = ${sessionScope.member.memNo};
 				const alarmType = ['새 댓글', '등업', '이벤트 당첨', '게시글 신고', '댓글 신고', '알림']
 
 				//******알림 목록 조회AJAX 시작*******//
