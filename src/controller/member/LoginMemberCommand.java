@@ -31,14 +31,14 @@ public class LoginMemberCommand implements Command {
 			if(member.getMemNo() == 0) {
 				System.out.println(member.getMemNo());
 				session.setAttribute("message", "아이디 혹은 비밀번호가 일치하지 않습니다.");
-				return new ActionForward("/loginMemberForm.jsp", false);
+				return new ActionForward("/member_login.jsp", false);
 			} else {
 			session.removeAttribute("message");
 			session.setAttribute("member", member);
 			
 			System.out.println(member.getMemNo());
 			
-			return new ActionForward("/loginMemberForm.jsp", false);
+			return new ActionForward("/member_login.jsp", false);
 			}
 			
 			} catch (Exception ex) {

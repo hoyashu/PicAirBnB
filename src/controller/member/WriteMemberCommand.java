@@ -31,7 +31,7 @@ public class WriteMemberCommand implements Command {
 				MemberService service = MemberService.getInstance();
 				service.registerMember(new MemberVo(id, pwd, name, nick, gender, hp, birth));
 				
-				return new ActionForward("/writeMemberForm.jsp", true);
+				return new ActionForward("/member_writeForm.jsp", false);
 						
 				} catch (Exception ex) {
 					throw ex;

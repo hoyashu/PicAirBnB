@@ -13,24 +13,8 @@ public class WithdrawMemberFormCommand implements Command {
 	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 
 		
-		 String memNoList = req.getParameter("memNoList"); 
-		 String[] memNo = memNoList.split(","); 
-		 int[] memNos = new int[memNo.length]; 
-		 for(int i=0;i<memNo.length; i++) { 
-			 memNos[i] = Integer.parseInt(memNo[i]);
-		 }
 		 
-		 String nickList = req.getParameter("nickList"); 
-		 String[] nick =nickList.split(","); 
-		 String[] nicks = new String[nick.length]; 
-		 for(int i=0;i<nick.length; i++) { 
-			 nicks[i] = nick[i];
-		 }
-		 
-		 req.setAttribute("memNos", memNos);
-		 req.setAttribute("nickList", nickList);
-		 
-		ActionForward foward = new ActionForward("/withdrawMemberForm.jsp", false);
+		ActionForward foward = new ActionForward("/member_withdrawForm.jsp", false);
 		return foward;
 	}
 

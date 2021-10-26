@@ -12,7 +12,7 @@ public class WriteMemberFormCommand implements Command {
 	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) throws Exception {
 				
 			// 회원 등록 폼 요청 처리 커멘드
-			ActionForward forward = new ActionForward("/writeMemberForm.jsp", false);
+			ActionForward forward = new ActionForward("/member_writeForm.jsp", false);
 			return forward;
 	}
 

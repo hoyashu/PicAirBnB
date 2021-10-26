@@ -15,7 +15,7 @@ public class DetailMemberCommand implements Command {
 
 	@Override
 	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		//1. 게시글 번호를 구한다.
+				
 				HttpSession session = req.getSession();
 				
 				MemberVo member = (MemberVo)session.getAttribute("member");

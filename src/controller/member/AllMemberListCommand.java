@@ -61,6 +61,6 @@ public class AllMemberListCommand implements Command {
 				req.setAttribute("totalPostCount", totalPostCount);
 				req.setAttribute("postSize", POST_PER_PAGE);
 				
-				return new ActionForward("/allMemberList.jsp?currentPage=" + currentPage, false);
+				return new ActionForward("/member_allList.jsp?currentPage=" + currentPage, false);
 			}
 	}
