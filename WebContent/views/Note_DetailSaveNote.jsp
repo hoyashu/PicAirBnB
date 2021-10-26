@@ -3,6 +3,10 @@
 <%@ page import="java.util.*, domain.NoteVo, model.dao.note.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%
+	pageContext.setAttribute("CR", "\n");
+	pageContext.setAttribute("BR", "<br>");
+%>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
 	$(document).ready(function(){
@@ -40,6 +44,6 @@ String sendMbId = notedao.selectMbId(sendMbNo);
 pageContext.setAttribute("sendMbId", sendMbId);
 %>
 보낸 사람 : ${pageScope.sendMbId} <br>
-내용 : ${requestScope.noteCon } <br>
+내용 : ${fn:replace(requestScope.noteCon, CR, BR) } <br>
 받는 사람 : ${pageScope.getMbId } <br>
 발송 날짜 : ${requestScope.noteDateTime } <br>
