@@ -36,8 +36,8 @@ th, td {
 				$('#reviewLiSt').show();
 			} else {
 				$('#reviewLiSt').hide();
-			}			
-		});
+			}	
+		}
 		
 		function OnChange()	{ 
 			var bordNoSelect = document.getElementById("bordNo").options[document.getElementById("bordNo").selectedIndex].value;

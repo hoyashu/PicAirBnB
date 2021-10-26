@@ -41,8 +41,6 @@ public class ListPostCommand implements Command {
 		//3. DB에서 게시글 목록을 조회한다.
 		ArrayList<PostVo> posts = PostService.getInstance().retrievePostSearchList(map, startRow, POST_PER_PAGE);
 		
-		
-		
 		//4. request 영역에 "boards" 속성이름으로 게시글 목록을 저장한다.
 		req.setAttribute("posts", posts);
 		

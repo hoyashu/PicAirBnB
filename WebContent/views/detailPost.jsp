@@ -51,7 +51,176 @@
 				
 				
 			}
+			 #addComment, #modifyComment {
+			width: 300px;
+			margin: 20px auto;
+			font-size: 12px;
+			}
         </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="	crossorigin="anonymous">
+        </script>
+        <script>
+        	$(document).ready(function() {
+        		
+        		const getAjax = function(url, boardNo, cmtContent) {
+                    // resolve, reject는 자바스크립트에서 지원하는 콜백 함수이다.
+                    return new Promise( (resolve, reject) => {
+                        $.ajax({                        
+                            url: url,
+                            method: 'GET',
+                            dataType: 'json',
+                            data: {
+                            	boardNo: boardNo,
+                            	cmtContent: cmtContent.trim().replace(/\n/g, '<br/>')
+                            },
+                            success: function(data) {                    	
+                                resolve(data);
+                            }, 
+                            error: function(e) {                    	
+                                reject(e);
+                            }
+                        });
+                    });
+                }   
+        		const updateComment = function(url, boardNo, cmtContent, no) {
+                    return new Promise( (resolve, reject) => {
+                        $.ajax({                        
+                            url: url,
+                            method: 'GET',
+                            dataType: 'json',
+                            data: {
+                            	boardNo: boardNo,
+                            	cmtContent: cmtContent.trim().replace(/\n/g, '<br/>'),
+                            	no: no
+                            },
+                            success: function(data) {                    	
+                                resolve(data);
+                                $('#modifyComment').insertAfter('#addComment');  
+                                $('#modifyComment').hide();
+                            }, 
+                            error: function(e) {                    	
+                                reject(e);
+                            }
+                        });
+                    });
+                }
+        		const removeComment = function(url, boardNo, no) {
+                    return new Promise( (resolve, reject) => {
+                        $.ajax({                        
+                            url: url,
+                            method: 'GET',
+                            dataType: 'json',
+                            data: {
+                            	boardNo: boardNo,
+                            	no: no                            
+                            },
+                            success: function(data) {                    	
+                                resolve(data);
+                            }, 
+                            error: function(e) {                    	
+                                reject(e);
+                            }
+                        });
+                    });
+                }   
+
+                async function requestProcess(url, boardNo, cmtContent, no) {
+                    try {                        
+                    	let cmtList = null;
+                    	if(cmtContent == null) {
+                    		cmtList = await removeComment(url, boardNo, no);	
+                    		
+                    	} else {
+                    		if(no!=null){
+                    			cmtList = await updateComment(url, boardNo, cmtContent, no);
+                    		} else {
+                    			cmtList = await getAjax(url, boardNo, cmtContent);
+                    		}                    		
+                    	}                    	                        
+                        $('#ListComment').html("");
+					 	let htmlStr = [];
+					 	for(let i = 0; i< cmtList.length; i++) {
+					 		htmlStr.push('<table id=' + cmtList[i].no +'>');
+					 		htmlStr.push('<tbody>');
+					 		htmlStr.push('<tr>');
+					 		htmlStr.push('<td>' + cmtList[i].userName + '</td>');
+					 		htmlStr.push('<td>' + cmtList[i].writeday + '</td>');
+					 		htmlStr.push('</tr>');		
+					 		htmlStr.push('<tr>');	
+					 		htmlStr.push('<td colspan="2" class="cmtContent">' + cmtList[i].content + '</td>');
+					 		htmlStr.push('</tr>');
+					 		htmlStr.push('<tr>');	
+					 		htmlStr.push('<td colspan="2">');
+					 		htmlStr.push('<button class="modifyFormBtn" type="button">수정</button>');		
+					 		htmlStr.push('<button class="removeBtn" type="button">삭제</button>');			
+					 		htmlStr.push('</td>');					
+					 		htmlStr.push('</tr>');
+					 		htmlStr.push('</tbody>');
+					 		htmlStr.push('</table>');				 		
+					 	}         
+					 	
+					 	$('#ListComment').html(htmlStr.join(""));
+                    } catch (error) {
+                        console.log("error : ", error);   
+                    }                                        
+                }
+                
+                //댓글 달기
+                $('#addCmtBtn').on('click', function() {
+                	const boardNo = '${param.no}';
+                	const cmtContent = $('#addCmtContent').val().trim();
+                	document.getElementById("addCmtContent").value='';
+                	
+                	requestProcess('${pageContext.request.contextPath}/addComment.do', boardNo, cmtContent);                	
+                });
+                                
+               
+                $('#ListComment').on('click', '.modifyFormBtn', function() {                
+                	const no = $(this).parents('table').attr('id');
+                	
+                	$('#modifyComment').insertAfter('#' + no);                	
+                	const content = $(this).parents('tbody').find('.cmtContent').html().replace(/<br>/g,'\n');   
+                	console.log(content);
+                	$('#modifyCmtContent').val(content);
+                	$('#no').val(no);
+                	$('#modifyComment').show();
+                	$('#' + no).hide();       
+
+                });
+                
+
+                //댓글 삭제
+                $('#ListComment').on('click', '.removeBtn', function() { 
+                	const boardNo = '${param.no}';               
+                	const no = $(this).parents('table').attr('id');
+                	const cmtContent = null;
+                	requestProcess('${pageContext.request.contextPath}/removeComment.do',boardNo,cmtContent, no);        	
+                });
+                
+                
+                //댓글 취소
+                $('#cancel').on('click', function() {
+                	const no = $('#no').val();
+                	$('#' + no).show();    
+                	$('#modifyComment').hide();
+                	$('#modifyComment').insertAfter('#addComment');
+                });
+                
+                //댓글 수정
+                $('#modifyBtn').on('click', function() {
+
+                	const boardNo = '${param.no}';     
+                	const no = $('#no').val();
+                	const cmtContent = $('#modifyCmtContent').val();
+                	
+                	requestProcess('${pageContext.request.contextPath}/modifyComment.do',boardNo, cmtContent, no);
+
+                	
+                	
+                
+                });			
+        	});       	
+        </script>
     </head>
 <body>
 <h3>${requestScope.post.subject}</h3>
@@ -165,8 +334,51 @@
 		<c:param name="boardNo" value="${requestScope.post.boardNo}" />
 	</c:url>
 	<a href="${listUrl}">목록보기</a>
-</div>	
-
+</div>
+<div id="ListComment">
+	<c:forEach var="comment" items="${requestScope.commentList}">
+		<table id="${comment.no}">
+			<tbody>
+				<tr>
+					<td>${comment.userName}</td>
+					<td>${comment.writeday}</td>
+				</tr>
+				<tr>
+					<%-- <td colspan="2" class="cmtContent">${fn:replace(comment.content, CR, BR)}</td> --%>
+					<td colspan="2" class="cmtContent">${comment.content}</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button class="modifyFormBtn" type="button">수정</button>
+						<button class="removeBtn" type="button">삭제</button>
+					</td>					
+				</tr>
+			</tbody>
+		</table>
+	</c:forEach>
+	</div>
+	
+	<%-- 댓글 달기 --%>
+	<div id="addComment">
+		<div>
+			<textarea id="addCmtContent" rows="5" cols="50" placeholder="댓글을 입력해주세오 ."></textarea>
+		</div>
+		<div>
+			<button id="addCmtBtn">댓글 달기</button>
+		</div>
+	</div>
+	
+	<%-- 댓글 수정--%>
+	<div id="modifyComment" style="display:none;">
+		<div>
+			<input type="hidden" id="no"/>
+			<textarea id="modifyCmtContent" rows="5" cols="50" placeholder="댓글을 입력해주세오 ."></textarea>
+		</div>
+		<div>
+			<button id="cancel">취소</button>
+			<button id="modifyBtn">수정하기</button>
+		</div>
+	</div>
 </body>
 </html>
 

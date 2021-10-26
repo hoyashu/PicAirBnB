@@ -1,5 +1,6 @@
 package controller.board;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import controller.ActionForward;
 import controller.Command;
+import domain.RoomVo;
+import model.service.RoomService;
 
 public class WritePostFormCommand implements Command {
 	@Override
@@ -29,6 +32,11 @@ public class WritePostFormCommand implements Command {
 		req.setAttribute("boardList", boardList);
 		
 		
+		// request 영역에 숙소목록을 저장한다. 
+		ArrayList<RoomVo> roomList = RoomService.getInstance().retrieveRoomList();
+		
+		req.setAttribute("roomList", roomList);
+		System.out.println(roomList);
 		//게시글 쓰기 폼 요청 처리 커맨드
 		ActionForward forward = new ActionForward("/writePostForm.jsp", false);
 		return forward;

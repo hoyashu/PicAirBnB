@@ -127,10 +127,13 @@ h2 {
 				<div class="mb-3">
 					<label for="room">숙소 선택</label> 
 					<select name="room">
-						<c:forEach var="i" begin="1" end="10">
-							<option value="${i}">${i}</option>
+						<c:forEach var="room" items ="${requestScope.roomList}">
+							<option value="${room.no}">${room.roomAddress}</option>
 						</c:forEach>
-					</select>
+					</select>					
+				</div>
+				<div style="overflow:auto; width:500px; height:50px;">
+					
 				</div>
 								
 				<div class="mb-3">
@@ -162,7 +165,7 @@ h2 {
 				</div>
 				<div class="mb-3">					
 					<label for="visitDate">방문 날짜를 선택하세요</label> 
-					<input type="date" name="visitDate" id = "visitDate" />
+					<input type="date" name="visitDate" id = "visitDate" value="2021-10-25" />
 				</div>				
 				<div class="mb-3">					
 					<label for="re_push_pl">주변 맛집과 관광지를 추천해주세요</label> 

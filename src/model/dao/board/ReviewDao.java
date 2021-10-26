@@ -26,6 +26,7 @@ public class ReviewDao {
 		PreparedStatement pstmt = null;
 		try {
 			StringBuffer sql = new StringBuffer();
+			System.out.println("여기일까???");
 			sql.append(
 					"INSERT INTO review (post_no, roo_no, re_rate_loc, re_rate_clean, re_rate_comu, re_rate_chip, re_vsdate, re_push_pl, re_push_npl )   ");
 			sql.append("VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)	");
@@ -40,9 +41,9 @@ public class ReviewDao {
 			pstmt.setString(7, review.getVisitDate());
 			pstmt.setString(8, review.getRecommendPlace());
 			pstmt.setString(9, review.getNotRecommendPerson());
-
+			
 			pstmt.executeUpdate();
-
+			System.out.println("여기느는ㄴ??");
 		} catch (Exception e) {
 			throw e;
 		} finally {

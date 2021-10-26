@@ -27,6 +27,13 @@ public class CommandFactory {
 		// 게시글 삭제 요청 
 		map.put("/cancelPost.do", "controller.board.CancelPostCommand");
 		
+		//댓글 등록		
+		map.put("/addComment.do", "controller.board.AddCommentCommand");
+		// 댓글 수정
+		map.put("/modifyComment.do", "controller.board.ModifyCommentCommand");
+		// 댓글 삭제
+		map.put("/removeComment.do", "controller.board.RemoveCommentCommand");
+		
 		
 	}
 

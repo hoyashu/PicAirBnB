@@ -44,10 +44,10 @@ public class PostService {
 			
 			if(post.getBoardNo()==1) {
 				// 리뷰 정보를 등록한다.
-				System.out.println("리뷰정보있을때");
 				review.setNo(no);
 				ReviewDao reviewDao = ReviewDao.getInstance();
 				reviewDao.insertReview(review, conn);
+				System.out.println("리뷰정보있을때");
 				
 			}
 
