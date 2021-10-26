@@ -1,32 +1,20 @@
 package controller.member;
 
-
-
-
-
-
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.tomcat.util.buf.StringUtils;
 
 import controller.ActionForward;
 import controller.Command;
 import domain.MemberStateVo;
-import domain.MemberVo;
-import model.service.MemberService;
 import model.service.MemberStateService;
 
-public class WithdrawMemberCommand implements Command {
+public class WithdrawMemberStateCommand implements Command{
 
 	@Override
 	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		
-		
 		try {
-			String memNos = req.getParameter("memNos");
-			String reason = req.getParameter("reason");
+			String memNos = req.getParameter("memNo_arr");
+			
 			System.out.println(memNos);
 			
 			String[] memNoList = memNos.split(",");
@@ -37,18 +25,17 @@ public class WithdrawMemberCommand implements Command {
 				
 			System.out.println(numsA); 
 
-			MemberStateService service = MemberStateService.getInstance();
-			service.registerMemberState(new MemberStateVo(numsA, reason));
-			 
-			service.reviseMemberState(new MemberStateVo(numsA, reason));
+			/*
+			 * MemberStateService service = MemberStateService.getInstance();
+			 * service.registerMemberState(new MemberStateVo(numsA, reason));
+			 */
 			
-			
-			
-			return new ActionForward("/member_withdrawForm.jsp", true);
+			return new ActionForward("/member_withdrawList.jsp", true);
 					
 			} catch (Exception ex) {
 				throw ex;
 			}
 	}
+	
 	
 }

@@ -30,6 +30,8 @@ public class CommandFactory {
 		map.put("/member_withdrawForm.do","controller.member.WithdrawMemberFormCommand");
 		// È¸¿ø Å»Åğ ¿äÃ»
 		map.put("/member_withdraw.do","controller.member.WithdrawMemberCommand");
+		// Å»Åğ »óÅÂ ¼öÁ¤ ¿äÃ»
+		map.put("/member_withdrawstate.do","controller.member.WithdrawMemberStateCommand");
 		
 	}
 

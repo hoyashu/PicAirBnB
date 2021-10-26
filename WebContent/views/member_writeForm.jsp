@@ -1,17 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
-<html lang='ko'>
+<html lang="ko">
 
-    <head>
-        <meta charset='UTF-8'>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <title>writeMemberForm</title>
-        <style>
-            
-        </style>      
-    </head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PicAirBnB</title>
+<link rel="stylesheet"
+   href="${pageContext.request.contextPath}/resource/css/reset.css">
+<link rel="stylesheet"
+   href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+   integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+   crossorigin="anonymous">
+
+<link rel="stylesheet"
+   href="${pageContext.request.contextPath}/resource/css/common.css">
+
+<script type="text/javascript"
+   src="${pageContext.request.contextPath}/resource/js/jquery-1.11.0.min.js"></script>
+
+<script type="text/javascript"
+   src="${pageContext.request.contextPath}/resource/js/common.js">
+   </script>
+</head>
+
+
+
 
     <body>
         <article>

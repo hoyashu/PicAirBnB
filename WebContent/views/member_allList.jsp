@@ -1,11 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="java.util.*, domain.MemberVo" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
 
 <!DOCTYPE html>
-<html lang='ko'>
+<html lang="ko">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PicAirBnB</title>
+<link rel="stylesheet"
+   href="${pageContext.request.contextPath}/resource/css/reset.css">
+<link rel="stylesheet"
+   href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+   integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+   crossorigin="anonymous">
+
+<link rel="stylesheet"
+   href="${pageContext.request.contextPath}/resource/css/common.css">
+
+<script type="text/javascript"
+   src="${pageContext.request.contextPath}/resource/js/jquery-1.11.0.min.js"></script>
+
+<script type="text/javascript"
+   src="${pageContext.request.contextPath}/resource/js/common.js">
+   </script>
+</head>
+
+
+
+
     <head>
         <meta charset='UTF-8'>
         <title></title>
@@ -41,30 +65,34 @@
                 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
                 crossorigin="anonymous"></script>
                 
+       
         <script>
-            $(document).ready(function() {          	
-            	$('#withdrawMemberBtn').on('click', function() {
-            		let memNo_arr = [];
-            		let nick_arr = [];
-            		$('input[name=checkbox]:checked').each(function() {
-            			let temp = $(this).val().split("-");            			
-            			memNo_arr.push(temp[0]);
-            			nick_arr.push(temp[1]);            			
-            		});            	
-       				location.href = '${pageContext.request.contextPath}/member_withdrawForm.do?memNoList='+ 
-       				memNo_arr.join(",") + "&nickList=" + nick_arr.join(",");
-            	});
-            	       	
-            });       
+        $(document).ready(function() {          	
+        	$('#withdrawMemberBtn').on('click', function() {
+        		let memNo_arr = [];
+        		let nick_arr = [];
+        		$('input[name=checkbox]:checked').each(function() {
+        			let temp = $(this).val().split("-");            			
+        			memNo_arr.push(temp[0]);
+        			nick_arr.push(temp[1]);            			
+        		});            	
+   				location.href = '${pageContext.request.contextPath}/member_withdrawForm.do?memNoList='+ 
+   				memNo_arr.join(",") + "&nickList=" + nick_arr.join(",");
+        	});
+        	       	
+        });       
+    
+
+    </script>
         
    
-        </script>
+      
     </head>
 <body>
 <h1>회원 목록 조회</h1>
   
 		<div>
-			<button type="button" name="withdrawMember" id="withdrawMemberBtn">회원 탈퇴</button>
+			<button type="button" name="withdrawMemberBtn" id="withdrawMemberBtn">회원 탈퇴</button>
 		</div>	
 <table>
 

@@ -42,6 +42,7 @@ public class MemberService {
 	public int retrieveTotalMemberCount() throws Exception {
 		return MemberDao.getInstance().selectTotalMemberCount();
 	}
+	
 	// 회원 조회
 	public void reviseMember(MemberVo member) throws Exception{
 		MemberDao memberDao  = MemberDao.getInstance();
