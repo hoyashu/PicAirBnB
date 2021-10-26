@@ -62,6 +62,6 @@ public class WithdrawMemberListCommand implements Command{
 		req.setAttribute("totalPostCount", totalPostCount);
 		req.setAttribute("postSize", POST_PER_PAGE);
 		
-		return new ActionForward("/withdrawMemberList.jsp?currentPage=" + currentPage, false);
+		return new ActionForward("/member_withdrawList.jsp?currentPage=" + currentPage, false);
 	}
 }

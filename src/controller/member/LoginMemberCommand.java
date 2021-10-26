@@ -19,28 +19,25 @@ public class LoginMemberCommand implements Command {
 			String id = req.getParameter("id");
 			String pwd = req.getParameter("pwd");
 
-			// 3.DB¿¡¼­ °Ô½Ã±Û ¹øÈ£¿¡ ÇØ´çÇÏ´Â °Ô½Ã±Û Á¤º¸¸¦ ±¸ÇÑ´Ù.
+			// 3.DBì—ì„œ ê²Œì‹œê¸€ ë²ˆí˜¸ì— í•´ë‹¹í•˜ëŠ” ê²Œì‹œê¸€ ì •ë³´ë¥¼ êµ¬í•œë‹¤.
 			MemberService service = MemberService.getInstance();
 
 			MemberVo member = service.loginMember(id, pwd);
-			// 4.session ¿µ¿ª¿¡ "member" ¼Ó¼ºÀÌ¸§À¸·Î °Ô½Ã±Û Á¤º¸¸¦ ÀúÀåÇÑ´Ù.
 
 			HttpSession session = req.getSession();
 
-			if (member.getMemNo() == 0) { //È¸¿øÀÌ ¾Æ´Ñ°æ¿ì
-				session.setAttribute("message", "¾ÆÀÌµğ È¤Àº ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+			if (member.getMemNo() == 0) { //íšŒì›ì´ ì•„ë‹Œê²½ìš°
+				session.setAttribute("message", "ì•„ì´ë”” í˜¹ì€ ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 				return new ActionForward("/member_login.jsp", true);
 			} else {
 				session.removeAttribute("message");
-				
+        // 4.session ì˜ì—­ì— "member" ì†ì„±ì´ë¦„ìœ¼ë¡œ ê²Œì‹œê¸€ ì •ë³´ë¥¼ ì €ì¥í•œë‹¤.
 				session.setAttribute("member", member);
 
 				return new ActionForward("/index.jsp", true);
 			}
-
 		} catch (Exception ex) {
 			throw ex;
 		}
 	}
-
 }

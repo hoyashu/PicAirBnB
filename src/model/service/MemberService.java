@@ -21,72 +21,56 @@ public class MemberService {
 		return service;
 	}
 
-	// È¸¿ø µî·Ï
+	// íšŒì› ë“±ë¡
 	public void registerMember(MemberVo member) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		memberDao.insertMember(member);
 	}
 
-	// ·Î±×ÀÎ
+	// ë¡œê·¸ì¸
 	public MemberVo loginMember(String id, String pwd) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.loginMember(id, pwd);
 	}
 
-	// ¾ÆÀÌµğ Ã£±â
+	// ì•„ì´ë”” ì°¾ê¸°
 	public List<MemberVo> retrieveMemberId(String name, String birth) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectNBMemberList(name, birth);
 	}
 
-	// È¸¿ø ¹øÈ£·Î ÁöÁ¤µÈ È¸¿ø¹øÈ£ÀÇ µ¥ÀÌÅÍ¸¦ Á¶È¸ÇÑ´Ù. 
+	// íšŒì› ë²ˆí˜¸ë¡œ ì§€ì •ëœ íšŒì›ë²ˆí˜¸ì˜ ë°ì´í„°ë¥¼ ì¡°íšŒí•œë‹¤. 
 	public MemberVo retrieveMember(int memNo) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectMember(memNo);
 	}
 
-	// ÀÔ·ÂÇÑ ´Ğ³×ÀÓÀÌ Áßº¹ÀÎÁö Á¶È¸ÇÑ´Ù.
+	// ì…ë ¥í•œ ë‹‰ë„¤ì„ì´ ì¤‘ë³µì¸ì§€ ì¡°íšŒí•œë‹¤.
 	public boolean retrieveNickOverlapMember(String nick) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectNickOverlapMember(nick);
-
 	}
 
-	// ÀÔ·ÂÇÑ ¾ÆÀÌµğÀÇ È¸¿øÀÌ Á¸ÀçÇÏ´ÂÁö È®ÀÎÇÑ´Ù.
+	// ì…ë ¥í•œ ì•„ì´ë””ì˜ íšŒì›ì´ ì¡´ì¬í•˜ëŠ”ì§€ í™•ì¸í•œë‹¤.
 	public boolean retrieveMailOverlapMember(String id) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectEmailOverlapMember(id);
-
 	}
 
-	// È¸¿ø ÀüÃ¼Á¶È¸
+	// íšŒì› ì „ì²´ì¡°íšŒ
 	public ArrayList<MemberVo> retrieveMemberList(int startRow, int postSize) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectMemberList(startRow, postSize);
-
 	}
 
-	// È¸¿ø ¼ö Á¶È¸
+	// íšŒì› ìˆ˜ ì¡°íšŒ
 	public int retrieveTotalMemberCount() throws Exception {
 		return MemberDao.getInstance().selectTotalMemberCount();
 	}
-
-	// È¸¿ø ¼öÁ¤
+  
+	// íšŒì› ìˆ˜ì •
 	public void reviseMember(MemberVo member) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		memberDao.updateMember(member);
 	}
-
-	// ÀÌ¸ŞÀÏ ÀÎÁõ ¹ß¼Û
-	public void sendCertifyMailMember(String id) throws Exception {
-		MemberDao memberDao = MemberDao.getInstance();
-
-	}
-
-	// ÀÎÁõ¹øÈ£ È®ÀÎ
-	public void certifyMailMember(String id, String certifyNo) throws Exception {
-		MemberDao memberDao = MemberDao.getInstance();
-
-	}
-
 }

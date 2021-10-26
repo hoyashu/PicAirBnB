@@ -2,5 +2,5 @@
 
 
 <jsp:forward page="/views/common/template.jsp">
-	<jsp:param name="content" value="/views/memberLoginForm" />
+	<jsp:param name="content" value="/views/Note_DetailNote" />
 </jsp:forward>
