@@ -1,70 +1,14 @@
 @charset "UTF-8";
 
-header {
-	background-color: #ffffff;
-	height: 70px;
-	border-bottom: 1px solid #b3b3b3;
-}
-
-header nav {background: #8989ff;float: left;margin-left: 40px;}
-
-
-header .header-inner {
-    height: 50px;
-    background: pink;
-    padding: 20px 40px 0px;
-    max-width: 1080px;
-    margin: 0 auto;
-}
-
-header .logo {
-    width: 150px;
-    height: 35px;
-    background: red;
-    float: left;
-}
-
-header nav>ul>li {
-    float: left;
-    display: inline-block;
+header .user-alarm,header .user-note{
     position: relative;
-    line-height: 35px;
 }
-
-header .gnb2-box {
-    position: absolute;
-    top: 100%;
-    width: 105px;
-    background: green;
-    z-index: 1;
-}
-
-header nav>ul>li+li,.util>ul>li+li {
-    margin-left: 30px;
-}
-
-header .util {
-    float: right;
-    width: 349px;
-}
-
-header .util>ul>li {
-    position: relative;
-    float: left;
-    display: inline-block;
-    line-height: 35px;
-}
-
-header .user-ico {
-    width: 10px;
-    height: 10px;
-    overflow: hidden;
-}
+header .dropdown-toggle.user-alarm:after {display: none;}
 header .notion{
 	position: absolute;
-    right: -11px;
-    top: 2px;
-    line-height: 13px;
+	right: -2px;
+	top: 3px;
+	line-height: 13px;
 }
 header .ico {
     width: 16px;
@@ -76,29 +20,11 @@ header .ico {
     text-align: center;
     border-radius: 15px;
 }
-
-header #alarm-box {
-    position: absolute;
-    background: purple;
-    width: 210px;
-    right: -95px;
-}
-
-header .gnb2-box,#alarm-box {
-    margin-top: 3px;
-}
-
-section {
-	background-color: yellow;
-	min-height: 400px;
-}
 footer {
-	background-color: #FDCD8C;
 	clear: both;
 }
 footer .footer-inner {
     height: 70px;
-    background: pink;
     padding: 30px 40px 0px;
     max-width: 1080px;
     margin: 0 auto;
@@ -125,10 +51,40 @@ footer .visit-count li {
     text-align: center;
 }
 
-footer .visit-count li+li {
-}
 
 footer .visit-count li p {
     font-weight: 600;
     margin-bottom: 7px;
+}
+
+img.logo {
+    width: 100px;
+}
+
+/* d-flex>row justify-content-center align-self-center */
+.form-small{
+	width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
