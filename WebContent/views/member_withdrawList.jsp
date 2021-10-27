@@ -1,63 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, domain.MemberVo" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
-
-<!DOCTYPE html>
-<html lang='ko'>
-    <head>
-        <meta charset='UTF-8'>
-        <title></title>
-        <style>
-            table {
-                width: 700px;
-                border-collapse: collapse;
-                margin: 50px auto;   
-                font-size: 12px;             
-            }
-
-            table, tr, th, td {
-                border: 1px solid blue;
-                text-align: center;
-            }
-            
-            th, td {
-            	height: 35px;
-            }
-
-            h3 {
-                text-align: center;
-            }
-            
-            #paging {
-            	width: 200px;
-            	margin: 10px auto;
-            }
-
-        </style>
-        <script>
-            $(document).ready(function(){
-            	$(".checkbox").click(function () {
-            		        	
-            })
-       
-
-        </script>
-    </head>
-<body>
 <h1>탈퇴 회원 관리</h1>
-
-		<c:url var="url2" value="/member_withdrawList.do">
-			<c:param name="memNo" value="${pageScope.member.memNo}"></c:param>
-		</c:url>
-        
 		<div>
-			<button onclick="${pageScope.url2}" type="button" name="withdrawMember" id="withdrawMember">가입불가 해체</button>
+			<button  type="button" name="withdrawUpdateBtn" id="withdrawUpdateBtn">가입불가 해체</button>
 		</div>
 			
 <table>
-
 	<thead>
 	<tr>
 		<th></th><th>닉네임</th><th>사유</th><th>처리일</th><th>가입불가 여부</th>
@@ -73,13 +24,11 @@
 		<c:forEach var="member" items="${requestScope.memberstate}" varStatus="loop">
 		
 			<tr>
-			
 				<td><input type="checkbox" value="${pageScope.member.memNo}" class="checkbox" name="checkbox"></td>
 				<td>${pageScope.member.nick}</td>
 				<td>${pageScope.member.reason}</td>
 				<td>${pageScope.member.withdrawDate}</td>
-				<td>${pageScope.member.stateNo}</td>
-				
+				<td>${pageScope.member.state}</td>
 			</tr>
 			
 		</c:forEach>
@@ -119,5 +68,50 @@
 		<a href="${nextUrl}">[Next]</a> 
 	</c:if>
 </div>
-</body>
-</html>
+  <script>
+      		  $(document).ready(function(){          	
+            	$('#withdrawUpdateBtn').on('click', function() {
+            		let memNo_arr = [];
+            		
+            		$('input[name=checkbox]:checked').each(function() {
+            			let temp = $(this).val();          			
+            			memNo_arr.push(temp[0]);            			
+            		});
+            		console.log(memNo_arr);
+            		
+            		const url = '${pageContext.request.contextPath}/member_withdrawstate.do'
+            		sendProcess(url, memNo_arr);
+    				
+            	});
+            	       		 	
+            });     
+      		  
+            const getAjax = function(url, memNo_arr){
+      			
+            	return new Promise((resolve, reject) => {
+
+      			$.ajax({
+      				url : url,
+      				method: 'GET',
+      				dataType: 'json',
+      				traditional : true,
+      			    data        : memNo_arr,
+      				async: true,
+      				success: function(data){
+     					console.log('data : ', data) 
+     					resolve(data);
+     				},
+     				error: function(e){
+     					console.log('error : ', e)
+     					reject(e);
+     				}
+      			});
+            	});
+      			
+      		};
+            
+            async function sendProcess(url, memNo_arr){
+  	  			var result = await getAjax(url, memNo_arr)
+  	  			console.log(result)
+  	  		};
+        </script>

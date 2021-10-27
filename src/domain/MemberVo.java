@@ -20,6 +20,15 @@ public class MemberVo {
 		super();
 		
 	}
+	
+	public MemberVo(String id, String nick, String joinDate) {
+		super();
+		this.id = id;
+		this.nick = nick;
+		this.joinDate = joinDate;
+	}
+
+
 	public MemberVo(int memNo, String nick, String gender, String joinDate, int boardCount, int commentCount, int visitCount,
 			int grade) {
 		super();
@@ -161,5 +170,4 @@ public class MemberVo {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
-
 }
