@@ -40,7 +40,9 @@
 	</table>
 
 	<%-- 페이징 처리 --%>
-	<div id="paging">
+	<div id="paging" style="
+    text-align: center;
+">
 		<c:set var="pageBlock" value="${requestScope.pageBlock}" scope="page" />
 		<c:set var="startPage" value="${requestScope.startPage}" scope="page" />
 		<c:set var="endPage" value="${requestScope.endPage}" scope="page" />
@@ -75,10 +77,10 @@
 		</c:if>
 	</div>
 
-	<div id="writePost">
+	<div id="writePost" style="text-align: right;">
 		<c:url var="writePostUrl" value="/writePostForm.do">
 			<c:param name="boardNo" value="${requestScope.boardNo}" />
 		</c:url>
-		<a href="${writePostUrl}">글작성</a>
+		<button type="button" class="btn btn-primary" onclick="location.href='${writePostUrl}'">글작성</button>
 	</div>
 </div>

@@ -17,7 +17,7 @@ section {
 	
 </nav>
 
-<div class="container-xxl my-md-4 bd-layout">
+<div class="container my-md-4 bd-layout">
 	<aside class="bd-sidebar">
 		<nav class="bd-links" id="bd-docs-nav" aria-label="Docs navigation">
 			<jsp:include page="${nav}" flush="false" />

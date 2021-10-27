@@ -61,6 +61,10 @@ img.logo {
     width: 100px;
 }
 
+.container {
+	overflow:hidden;
+}
+
 /* d-flex>row justify-content-center align-self-center */
 .form-small{
 	width: 100%;
@@ -90,9 +94,26 @@ img.logo {
 }
 
 aside.bd-sidebar {
-    width: 20%;
+    width: 18%;
     float: left;
+    height: auto;
+    border: 1px solid #ff5e63;
 }
+
+
+aside #side-title {
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 20px;
+    font-weight: 900;
+    background: #ff5e63;
+    color: #fff;
+}
+
+aside #side-title+ul {margin-top: 25px;}
+
 
 .panel-heading {
     color: #333333;
