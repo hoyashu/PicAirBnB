@@ -61,10 +61,6 @@ img.logo {
     width: 100px;
 }
 
-.container {
-	overflow:hidden;
-}
-
 /* d-flex>row justify-content-center align-self-center */
 .form-small{
 	width: 100%;
