@@ -27,7 +27,7 @@ public class MemberStateDao {
 			
 			
 			
-			// È¸¿ø Å»Åğ µî·Ï
+			// íšŒì› íƒˆí‡´ ë“±ë¡
 			public void insertMemberState(MemberStateVo memberStateVo) throws Exception {
 				
 				Connection conn = null;
@@ -54,11 +54,11 @@ public class MemberStateDao {
 			        	
 			        	
 			        	 pstmt.addBatch();
-			        	 pstmt.clearParameters(); // ÆÄ¶ó¹ÌÅÍ ÃÊ±âÈ­
+			        	 pstmt.clearParameters(); // íŒŒë¼ë¯¸í„° ì´ˆê¸°í™”
 			            
 			         }
 			         pstmt.executeBatch();
-			         pstmt.clearParameters(); // Batch ÃÊ±âÈ­
+			         pstmt.clearParameters(); // Batch ì´ˆê¸°í™”
 			         
 			        		
 	
@@ -78,7 +78,7 @@ public class MemberStateDao {
 				}
 				}
 			
-			// È¸¿ø Å»Åğ »óÅÂ º¯°æ
+			// íšŒì› íƒˆí‡´ ìƒíƒœ ë³€ê²½
 			public void updateMemberState(MemberStateVo memberStateVo) throws Exception {
 				
 				Connection conn = null;
@@ -98,11 +98,11 @@ public class MemberStateDao {
 			        	 pstmt.setInt(1, memNo);
 			       
 			        	 pstmt.addBatch();
-			        	 pstmt.clearParameters(); // ÆÄ¶ó¹ÌÅÍ ÃÊ±âÈ­
+			        	 pstmt.clearParameters(); // íŒŒë¼ë¯¸í„° ì´ˆê¸°í™”
 			            
 			         }
 			         pstmt.executeBatch();
-			         pstmt.clearParameters(); // Batch ÃÊ±âÈ­
+			         pstmt.clearParameters(); // Batch ì´ˆê¸°í™”
 			         
 			        	
 					
@@ -122,7 +122,7 @@ public class MemberStateDao {
 				}
 				}
 			
-			// È¸¿ø Å»Åğ ¸ñ·ÏÀ» Á¶È¸ÇÑ´Ù
+			// íšŒì› íƒˆí‡´ ëª©ë¡ì„ ì¡°íšŒí•œë‹¤
 						public ArrayList<MemberStateVo> selectMemberStateList(int startRow, int postSize) throws Exception {
 							ArrayList<MemberStateVo> boardstate = new ArrayList<MemberStateVo>();
 							Connection conn = null;
@@ -169,7 +169,7 @@ public class MemberStateDao {
 							return boardstate;
 						}
 						
-								// Å»Åğ È¸¿ø ¼ö¸¦ ±¸ÇÏ´Ù
+								// íƒˆí‡´ íšŒì› ìˆ˜ë¥¼ êµ¬í•˜ë‹¤
 								public int selectTotalMemberStateCount() throws Exception {
 									Connection conn = null;
 									Statement stmt = null;

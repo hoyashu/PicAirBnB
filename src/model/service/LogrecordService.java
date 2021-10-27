@@ -64,6 +64,11 @@ public class LogrecordService {
 		}
 		return typeOfGraphPostCounts;
 	}
+	
+	public void registerLogrecord(String userIp, String userId) throws Exception {
+		LogrecordDao logrecordDao = LogrecordDao.getInstance();
+		logrecordDao.insertLogrecord(userIp, userId);
+	}
 }
 
 

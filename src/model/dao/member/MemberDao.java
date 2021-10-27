@@ -24,7 +24,7 @@ public class MemberDao {
 		return MemberDao;
 	}
 
-	// È¸¿ø µî·Ï
+	// íšŒì› ë“±ë¡
 	public void insertMember(MemberVo member) throws Exception {
 
 		Connection conn = null;
@@ -69,7 +69,7 @@ public class MemberDao {
 		}
 	}
 
-	// ·Î±×ÀÎ½Ã ¼¼¼Çµî·ÏÀ» À§ÇÑ µ¥ÀÌÅÍ¸¸ °¡Á®¿È
+	// ë¡œê·¸ì¸ì‹œ ì„¸ì…˜ë“±ë¡ì„ ìœ„í•œ ë°ì´í„°ë§Œ ê°€ì ¸ì˜´
 	public MemberVo loginMember(String id, String pwd) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -115,9 +115,9 @@ public class MemberDao {
 		return member;
 	}
 
-	// ÀÌ¸§°ú »ı³â¿ùÀÏ·Î »ç¿ëÀÚ¸¦ °Ë»öÇÑ´Ù. (¾ÆÀÌµğ Ã£±â)
+	// ì´ë¦„ê³¼ ìƒë…„ì›”ì¼ë¡œ ì‚¬ìš©ìë¥¼ ê²€ìƒ‰í•œë‹¤. (ì•„ì´ë”” ì°¾ê¸°)
 	public ArrayList<MemberVo> selectNBMemberList(String name, String birth) throws Exception {
-		System.out.println("selectNickOverlapMemberList½ÇÇà");
+		System.out.println("selectNickOverlapMemberListì‹¤í–‰");
 		ArrayList<MemberVo> members = new ArrayList<MemberVo>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -141,7 +141,7 @@ public class MemberDao {
 				String id = rs.getString(1);
 				String nick = rs.getString(2);
 				String joinDate = rs.getString(3);
-				System.out.println("Ã£Àº nick : " + nick);
+				System.out.println("ì°¾ì€ nick : " + nick);
 				members.add(new MemberVo(id, nick, joinDate));
 			}
 
@@ -160,7 +160,7 @@ public class MemberDao {
 		}
 	}
 
-	// ÇØ´ç idÀÇ È¸¿ø Á¸Àç¿©ºÎ È®ÀÎ
+	// í•´ë‹¹ idì˜ íšŒì› ì¡´ì¬ì—¬ë¶€ í™•ì¸
 	public boolean selectEmailOverlapMember(String id) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -201,7 +201,7 @@ public class MemberDao {
 		}
 	}
 
-	// ÇØ´ç ´Ğ³×ÀÓÀÇ È¸¿ø Á¸Àç¿©ºÎ È®ÀÎ
+	// í•´ë‹¹ ë‹‰ë„¤ì„ì˜ íšŒì› ì¡´ì¬ì—¬ë¶€ í™•ì¸
 	public boolean selectNickOverlapMember(String nick) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -242,7 +242,7 @@ public class MemberDao {
 		}
 	}
 
-	// È¸¿ø ¸ñ·ÏÀ» Á¶È¸ÇÑ´Ù
+	// íšŒì› ëª©ë¡ì„ ì¡°íšŒí•œë‹¤
 	public ArrayList<MemberVo> selectMemberList(int startRow, int postSize) throws Exception {
 		ArrayList<MemberVo> boards = new ArrayList<MemberVo>();
 		Connection conn = null;
@@ -289,7 +289,7 @@ public class MemberDao {
 		return boards;
 	}
 
-	// ÃÑ ¸â¹ö ¼ö¸¦ ±¸ÇÏ´Ù
+	// ì´ ë©¤ë²„ ìˆ˜ë¥¼ êµ¬í•˜ë‹¤
 	public int selectTotalMemberCount() throws Exception {
 		Connection conn = null;
 		Statement stmt = null;
@@ -322,7 +322,7 @@ public class MemberDao {
 		return count;
 	}
 
-	// È¸¿ø ¼öÁ¤
+	// íšŒì› ìˆ˜ì •
 	public void updateMember(MemberVo member) throws Exception {
 
 		Connection conn = null;
@@ -369,9 +369,9 @@ public class MemberDao {
 		}
 	}
 
-	// È¸¿ø »ó¼¼Á¶È¸
+	// íšŒì› ìƒì„¸ì¡°íšŒ
 	public MemberVo selectMember(int memNo) throws Exception {
-		System.out.println("selectMember½ÇÇà");
+		System.out.println("selectMemberì‹¤í–‰");
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;

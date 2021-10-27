@@ -29,7 +29,6 @@
 		<url-pattern>/SendMemberMailCommand2</url-pattern>
 	</servlet-mapping>
 
-
 	<filter>
 		<filter-name>AuthFilter</filter-name>
 		<filter-class>util.AuthFilter</filter-class>
