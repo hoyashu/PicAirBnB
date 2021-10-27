@@ -40,5 +40,3 @@ private static MemberStateService service;
 		return MemberStateDao.getInstance().selectTotalMemberStateCount();
 	}
 }
-	
-

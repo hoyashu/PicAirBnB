@@ -19,10 +19,10 @@
 		<div class="col-lg-6">
 			<h1 class="display-5 fw-bold mb-3 main-title">에어비엔비 숙소 리뷰<br>답답하셨다면 바로 검색!</h1>
 			<p class="lead">게스트의 시선에서 숙소 모습과 이야기를 들어보세요.</p>
-			<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+			<!-- <div class="d-grid gap-2 d-md-flex justify-content-md-start">
 				<button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
 				<button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>

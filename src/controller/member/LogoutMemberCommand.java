@@ -21,7 +21,7 @@ public class LogoutMemberCommand implements Command {
 				session.invalidate();// 세션 값 초기화하기
 
 				// 로그아웃을 했기 때문에 메인으로 이동하도록 한다.
-				return new ActionForward("/index.jsp", true);
+				return new ActionForward("/index.jsp", true); 
 			}
 		} catch (
 

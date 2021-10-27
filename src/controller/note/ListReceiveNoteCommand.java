@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.ActionForward;
 import controller.Command;
+import domain.MemberVo;
 import domain.NoteVo;
 import model.service.NoteService;
 
@@ -20,7 +21,9 @@ public class ListReceiveNoteCommand implements Command {
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		// 유저 아이디 입력칸
-		String userId = "airbnb1@java.com";
+		HttpSession session = request.getSession();
+		MemberVo member = (MemberVo)session.getAttribute("member");
+		String userId = member.getId();
 		// 1. 현재 페이지 번호를 구한다.
 		int currentPage = 0;
 		try {

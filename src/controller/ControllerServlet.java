@@ -35,8 +35,8 @@ public class ControllerServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		try {
-			String requestURI = request.getRequestURI();
-			String contextPath = request.getContextPath();
+			String requestURI = request.getRequestURI(); 
+			String contextPath = request.getContextPath(); 
 			String commandURI = requestURI.substring(contextPath.length()); //writeBoardForm.do
 			//아래 애로 해도 동일한 결과 나옴
 			//String commandURI2 = request.getServletPath();
@@ -71,14 +71,11 @@ public class ControllerServlet extends HttpServlet {
 
 			
 		} catch (Exception ex) { //WriteBoardCommand.excute에서 날아온 오류가 여기로 날아옴
-			ex.printStackTrace();
-			/*
-			 * request.setAttribute("execption", ex); //error.jspfh ex를 날려버림 //데이터 유지를 위해서
-			 * //forward방식 사용 RequestDispatcher dispatcher =
-			 * request.getRequestDispatcher("/error.jsp"); dispatcher.forward(request,
-			 * response);
-			 */
-			 
+			request.setAttribute("execption", ex);
+			//error.jspfh ex를 날려버림
+			//데이터 유지를 위해서 forward방식 사용
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/error.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 

@@ -73,6 +73,5 @@ public class MemberService {
 		MemberDao memberDao = MemberDao.getInstance();
 		memberDao.updateMember(member);
 	}
-	
-	
+
 }
