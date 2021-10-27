@@ -161,17 +161,17 @@ public class MemberDao {
 	}
 
 	// 해당 id의 회원 존재여부 확인
-	public boolean selectEmailOverlapMember(String id) throws Exception {
+	public int selectEmailOverlapMember(String id) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		boolean overlap = false;
+		int overlap = 0;
 		try {
 			conn = DBConn.getConnection();
 
 			StringBuffer sql = new StringBuffer();
-			sql.append("select mb_no, mb_id, mb_nick, mb_name, mb_pwd, mb_gender, mb_hp, mb_birth from member  ");
+			sql.append("select mb_id from member  ");
 			sql.append("where mb_id = ?;");
 
 			pstmt = conn.prepareStatement(sql.toString());
@@ -181,7 +181,7 @@ public class MemberDao {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				overlap = true;
+				overlap = 1;
 			}
 			return overlap;
 
@@ -202,17 +202,17 @@ public class MemberDao {
 	}
 
 	// 해당 닉네임의 회원 존재여부 확인
-	public boolean selectNickOverlapMember(String nick) throws Exception {
+	public int selectNickOverlapMember(String nick) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		boolean overlap = false;
+		int overlap = 0;
 		try {
 			conn = DBConn.getConnection();
 
 			StringBuffer sql = new StringBuffer();
-			sql.append("select mb_no, mb_id, mb_nick, mb_name, mb_pwd, mb_gender, mb_hp, mb_birth from member  ");
+			sql.append("select mb_nick from member  ");
 			sql.append("where mb_nick = ?;");
 
 			pstmt = conn.prepareStatement(sql.toString());
@@ -222,7 +222,7 @@ public class MemberDao {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				overlap = true;
+				overlap = 1;
 			}
 			return overlap;
 
@@ -241,7 +241,8 @@ public class MemberDao {
 			}
 		}
 	}
-
+	
+	
 	// 회원 목록을 조회한다
 	public ArrayList<MemberVo> selectMemberList(int startRow, int postSize) throws Exception {
 		ArrayList<MemberVo> boards = new ArrayList<MemberVo>();

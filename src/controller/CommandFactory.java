@@ -43,6 +43,12 @@ public class CommandFactory {
 		// 회원 탈퇴 폼 요청
 		map.put("/member_withdrawForm.do", "controller.member.WithdrawMemberFormCommand");
 
+		// 회원 등록 아이디 중복 검사 요청
+		map.put("/member_idCheck.do", "controller.member.IdCheckMemberCommand");
+		
+		// 회원 등록 닉네임 중복 검사 요청
+		map.put("/member_nickCheck.do", "controller.member.NickCheckMemberCommand");
+				
 		// 회원 탈퇴 요청
 		map.put("/member_withdraw.do", "controller.member.WithdrawMemberCommand");
 

@@ -8,7 +8,7 @@
 <html lang="ko">
 
 <head>
-<meta charset="UTF-8">
+<meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8“>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PicAirBnB</title>
 <link rel="stylesheet"
@@ -142,7 +142,17 @@
 				<td>${pageScope.member.nick}</td>
 				<td>${pageScope.member.reason}</td>
 				<td>${pageScope.member.withdrawDate}</td>
-				<td>${pageScope.member.state}</td>
+				<td><%-- ${pageScope.member.state} --%>
+				<c:choose>
+					<c:when test="${pageScope.member.state == 1}">
+						정상회원
+					</c:when>
+					<c:when test="${pageScope.member.state == 2}">
+						탈퇴회원
+					</c:when>
+					<c:otherwise>강제탈퇴 회원</c:otherwise>
+				</c:choose>
+				</td>
 				
 			</tr>
 			

@@ -13,6 +13,11 @@
 	
 		<div class="form-floating">
 			<input type="password" class="form-control" name="pwd" id="pwd"><label for="pwd">비밀번호</label>
+			
+			<c:if test="${not empty requestScope.message}">
+			<span style="color: red;">${requestScope.message}</span>
+			</c:if>
+			
 		</div>
 		<div class="checkbox mb-3">
 			<label>
@@ -23,9 +28,7 @@
 			<a href="${pageContext.request.contextPath}/member_findIdForm.jsp">아이디 찾기</a> | <a
 				href="${pageContext.request.contextPath}/member_findPwForm.jsp">비밀번호 찾기</a>
 		</div>
-		<c:if test="${not empty requestScope.message}">
-			<span style="color: red;">${requestScope.message}</span>
-		</c:if>
+		
 		<button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
 	</form>
 </div>

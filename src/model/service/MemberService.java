@@ -21,56 +21,58 @@ public class MemberService {
 		return service;
 	}
 
-	// 회원 등록
+	// �쉶�썝 �벑濡�
 	public void registerMember(MemberVo member) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		memberDao.insertMember(member);
 	}
 
-	// 로그인
+	// 濡쒓렇�씤
 	public MemberVo loginMember(String id, String pwd) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.loginMember(id, pwd);
 	}
 
-	// 아이디 찾기
+	// �븘�씠�뵒 李얘린
 	public List<MemberVo> retrieveMemberId(String name, String birth) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectNBMemberList(name, birth);
 	}
 
-	// 회원 번호로 지정된 회원번호의 데이터를 조회한다. 
+	// �쉶�썝 踰덊샇濡� 吏��젙�맂 �쉶�썝踰덊샇�쓽 �뜲�씠�꽣瑜� 議고쉶�븳�떎. 
 	public MemberVo retrieveMember(int memNo) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectMember(memNo);
 	}
 
-	// 입력한 닉네임이 중복인지 조회한다.
-	public boolean retrieveNickOverlapMember(String nick) throws Exception {
+	// �엯�젰�븳 �땳�꽕�엫�씠 以묐났�씤吏� 議고쉶�븳�떎.
+	public int retrieveNickOverlapMember(String nick) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectNickOverlapMember(nick);
 	}
 
-	// 입력한 아이디의 회원이 존재하는지 확인한다.
-	public boolean retrieveMailOverlapMember(String id) throws Exception {
+	// �엯�젰�븳 �븘�씠�뵒�쓽 �쉶�썝�씠 議댁옱�븯�뒗吏� �솗�씤�븳�떎.
+	public int retrieveMailOverlapMember(String id) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectEmailOverlapMember(id);
 	}
 
-	// 회원 전체조회
+	// �쉶�썝 �쟾泥댁“�쉶
 	public ArrayList<MemberVo> retrieveMemberList(int startRow, int postSize) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectMemberList(startRow, postSize);
 	}
 
-	// 회원 수 조회
+	// �쉶�썝 �닔 議고쉶
 	public int retrieveTotalMemberCount() throws Exception {
 		return MemberDao.getInstance().selectTotalMemberCount();
 	}
   
-	// 회원 수정
+	// �쉶�썝 �닔�젙
 	public void reviseMember(MemberVo member) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		memberDao.updateMember(member);
 	}
+	
+	
 }

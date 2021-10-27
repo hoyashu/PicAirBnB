@@ -19,19 +19,19 @@ public class LoginMemberCommand implements Command {
 			String id = req.getParameter("id");
 			String pwd = req.getParameter("pwd");
 
-			// 3.DB에서 게시글 번호에 해당하는 게시글 정보를 구한다.
+			// 3.DB�뿉�꽌 寃뚯떆湲� 踰덊샇�뿉 �빐�떦�븯�뒗 寃뚯떆湲� �젙蹂대�� 援ы븳�떎.
 			MemberService service = MemberService.getInstance();
 
 			MemberVo member = service.loginMember(id, pwd);
 
 			HttpSession session = req.getSession();
 
-			if (member.getMemNo() == 0) { //회원이 아닌경우
-				session.setAttribute("message", "아이디 혹은 비밀번호가 일치하지 않습니다.");
-				return new ActionForward("/member_login.jsp", true);
+			if (member.getMemNo() == 0) { //�쉶�썝�씠 �븘�땶寃쎌슦
+				req.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+				return new ActionForward("/member_login.jsp", false);
 			} else {
-				session.removeAttribute("message");
-        // 4.session 영역에 "member" 속성이름으로 게시글 정보를 저장한다.
+				req.removeAttribute("message");
+        // 4.session �쁺�뿭�뿉 "member" �냽�꽦�씠由꾩쑝濡� 寃뚯떆湲� �젙蹂대�� ���옣�븳�떎.
 				session.setAttribute("member", member);
 
 				return new ActionForward("/index.jsp", true);
