@@ -12,10 +12,7 @@ section{
     float: inherit;
 }
 </style>
-
-<div class="container">
-	<section id="content">
-		<jsp:include page="${content}" flush="false" />
-	</section>
-</div>
+<section>
+	<jsp:include page="${content}" flush="false" />
+</section>
 <jsp:include page="/views/common/footer.jsp" flush="false" />
