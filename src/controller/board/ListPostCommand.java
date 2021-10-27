@@ -83,7 +83,8 @@ public class ListPostCommand implements Command {
 		req.setAttribute("postSize", POST_PER_PAGE);
 		req.setAttribute("boardNo", boardNo);
 		
-		return new ActionForward("/listPost.jsp?currentPage="+ currentPage, false);
+		req.setAttribute("currentPage", currentPage);
+		return new ActionForward("/listPost.jsp", false);
 
 	}
 
