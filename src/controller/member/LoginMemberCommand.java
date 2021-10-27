@@ -20,32 +20,30 @@ public class LoginMemberCommand implements Command {
 			String pwd = req.getParameter("pwd");
 			
 			
-			// 3.DB¿¡¼­ °Ô½Ã±Û ¹øÈ£¿¡ ÇØ´çÇÏ´Â °Ô½Ã±Û Á¤º¸¸¦ ±¸ÇÑ´Ù.
+			// 3.
 			MemberService service = MemberService.getInstance();
-			
 			MemberVo member = service.loginMember(id, pwd);
-			// 4.session ¿µ¿ª¿¡ "member" ¼Ó¼ºÀÌ¸§À¸·Î °Ô½Ã±Û Á¤º¸¸¦ ÀúÀåÇÑ´Ù.
-			
+			// 4.session ì˜ì—­ì— "member" ì†ì„±ì´ë¦„ìœ¼ë¡œ ê²Œì‹œê¸€ ì •ë³´ë¥¼ ì €ì¥í•œë‹¤.
 			HttpSession session = req.getSession();
 			
 			if(member.getMemNo() == 0) {
 				System.out.println(member.getMemNo());
-				session.setAttribute("message", "¾ÆÀÌµğ È¤Àº ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+				req.setAttribute("message", "ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 				return new ActionForward("/member_login.jsp", false);
 			} else {
 			session.removeAttribute("message");
 			session.setAttribute("member", member);
 			
-			// 5. ·Î±× Á¤º¸¸¦ ÀúÀåÇÑ´Ù.
+			// 5. ë¡œê·¸ ì •ë³´ë¥¼ ì €ì¥í•œë‹¤.
 			String userIp = req.getRemoteAddr();
 			String userId = member.getId();
 			LogrecordService logrecordService = LogrecordService.getInstance();
 			logrecordService.registerLogrecord(userIp, userId);
 			
-			// 6. RealTime Å¬·¡½º¿¡ »ç¿ëÀÚ Á¤º¸¸¦ Ãß°¡ÇÑ´Ù.
+			// 6. RealTime í´ë˜ìŠ¤ì— ì‚¬ìš©ì ì •ë³´ë¥¼ ì¶”ê°€í•œë‹¤.
 			RealTime.memberIds.add(userId);
 			RealTime.memberCount = RealTime.memberIds.size();
-			System.out.println("Ãß°¡ ¿Ï·á");
+			System.out.println("ì¶”ê°€ ì™„ë£Œ");
 			
 			System.out.println(member.getMemNo());
 			

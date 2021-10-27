@@ -16,6 +16,12 @@ public class CommandFactory {
 		// 회원 등록 요청
 		map.put("/member_write.do", "controller.member.WriteMemberCommand");
 
+    // 중복 아이디 체크
+		map.put("/member_idCheck.do", "controller.member.IdCheckMemberCommand");
+		
+		// 중복 닉네임 체크
+		map.put("/member_nickCheck.do", "controller.member.NickCheckMemberCommand");
+    
 		// 로그인 요청
 		map.put("/member_login.do", "controller.member.LoginMemberCommand");
 
