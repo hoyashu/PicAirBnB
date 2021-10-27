@@ -91,7 +91,7 @@ public class CommandFactory {
 		// 댓글 수정
 		map.put("/modifyComment.do", "controller.board.ModifyCommentCommand");
 		// 댓글 삭제
-		map.put("/removeComment.do", "controller.board.RemoveCommentCommand");
+		map.put("/removeComment.do", "controller.board.RemoveCommentCommand"); 
 	}
 
 	// 외부에서 중복된 생성자를 만드는 것을 방지하기 위해서 싱글톤 작성
