@@ -21,6 +21,7 @@ public class CancelPostCommand implements Command {
 		
 		HttpSession session = req.getSession();
 		PostVo post = (PostVo) session.getAttribute("post");
+		session.setAttribute("boardNo_MOD", post.getBoardNo());
 
 		return new ActionForward("/listPost.do", true);
 	}
