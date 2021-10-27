@@ -13,8 +13,9 @@ public class ModifyMemberCommand implements Command {
 
 	@Override
 	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		// È¸¿ø ¼öÁ¤ ¿äÃ»À» Ã³¸®ÇÒ Ä¿¸Çµå
-		//1. »ç¿ëÀÚ °¡ ÀÔ·ÂÇÑ È¸¿ø Á¤º¸¸¦ ±¸ÇÑ´Ù.
+		// íšŒì› ìˆ˜ì • ìš”ì²­ì„ ì²˜ë¦¬í•  ì»¤ë§¨ë“œ
+		//1. ì‚¬ìš©ì ê°€ ì…ë ¥í•œ íšŒì› ì •ë³´ë¥¼ êµ¬í•œë‹¤.
+		
 		HttpSession session = req.getSession();
 		
 		MemberVo member = (MemberVo)session.getAttribute("member");
@@ -31,7 +32,7 @@ public class ModifyMemberCommand implements Command {
 		String birth = req.getParameter("birthDay");
 		
 		
-		//2. »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ Á¤º¸¸¦ DB¿¡ µî·ÏÇÑ´Ù.
+		//2. ì‚¬ìš©ìê°€ ì…ë ¥í•œ ì •ë³´ë¥¼ DBì— ë“±ë¡í•œë‹¤.
 		MemberService service = MemberService.getInstance();
 		service.registerMember(new MemberVo(memNo, id, pwd, name, nick, gender, hp, birth));
 		
