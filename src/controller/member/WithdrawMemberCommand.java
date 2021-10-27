@@ -1,15 +1,7 @@
 package controller.member;
 
-
-
-
-
-
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.tomcat.util.buf.StringUtils;
 
 import controller.ActionForward;
 import controller.Command;
@@ -22,27 +14,16 @@ public class WithdrawMemberCommand implements Command {
 
 	@Override
 	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		
-		
 		try {
-			String memNos = req.getParameter("memNos");
-			String reason = req.getParameter("reason");
-			System.out.println(memNos);
-			
-			String[] memNoList = memNos.split(",");
-			System.out.println(memNoList);
-	
-			int[] numsA = new int[memNoList.length];
-			for(int i=0;i<memNoList.length; i++){ numsA[i] = Integer.parseInt(memNoList[i]); }
-				
-			System.out.println(numsA); 
-
-			MemberStateService service = MemberStateService.getInstance();
-			service.registerMemberState(new MemberStateVo(numsA, reason));
-			 
-			service.reviseMemberState(new MemberStateVo(numsA, reason));
+			String[] memno = req.getParameterValues("memNo");
 			
 			
+			
+			//2. 사용자가 입력한 정보를 DB에 등록한다.
+			/*
+			 * MemberStateService service = MemberStateService.getInstance();
+			 * service.registerMemberState(new MemberStateVo(memNo, reason));
+			 */
 			
 			return new ActionForward("/member_withdrawForm.jsp", true);
 					

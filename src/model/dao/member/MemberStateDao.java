@@ -25,104 +25,41 @@ public class MemberStateDao {
 				return MemberStateDao;
 			}
 			
-			
-			
-			// 회원 탈퇴 등록
+			// 회원 등록
 			public void insertMemberState(MemberStateVo memberStateVo) throws Exception {
 				
 				Connection conn = null;
 				PreparedStatement pstmt = null;
-				
-				
 				Statement stmt = null;
 				ResultSet rs = null;
-				int[] memNos = memberStateVo.getMemNos();
-				
+
 				try {
 					conn = DBConn.getConnection();
 					
 					StringBuffer sql = new StringBuffer();
-					sql.append("INSERT INTO memberstate (mb_no, ms_reason, ms_datetime) ");
+					sql.append("INSERT INTO memberstate (mb_no, ms_reason, ms_datetime)) ");
 					sql.append("VALUES (?, ?, DATE_FORMAT(now(), '%Y/%m/%d %H:%i:%s')); ");
-					
-					
 					pstmt = conn.prepareStatement(sql.toString());
 					
-					for (int memNo : memNos) {
-			        	 pstmt.setInt(1, memNo);
-			        	 pstmt.setString(2, memberStateVo.getReason());
-			        	
-			        	
-			        	 pstmt.addBatch();
-			        	 pstmt.clearParameters(); // 파라미터 초기화
-			            
-			         }
-			         pstmt.executeBatch();
-			         pstmt.clearParameters(); // Batch 초기화
-			         
-			        		
-	
+					pstmt.setInt(1, memberStateVo.getMemNo());
+					pstmt.setString(2, memberStateVo.getReason());
+					
+					pstmt.executeUpdate();
+					
 				} catch (Exception e) {
 					throw e;
 				} finally {
 					try {
-						
 						if(rs != null) rs.close();
 						if(stmt != null) stmt.close();
 						if(pstmt != null) pstmt.close();
-						
 						if(conn != null) conn.close(); 
 					} catch (Exception e2) {
 						throw e2;
 					}
 				}
-				}
-			
-			// 회원 탈퇴 상태 변경
-			public void updateMemberState(MemberStateVo memberStateVo) throws Exception {
-				
-				Connection conn = null;
-				PreparedStatement pstmt = null;
-				ResultSet rs = null;
-				
-				int[] memNos = memberStateVo.getMemNos();
-				
-				try {
-					conn = DBConn.getConnection();
-					
-					StringBuffer sql = new StringBuffer();
-					sql.append("UPDATE member SET mb_state = 3  WHERE mb_no = ?; ");			
-					pstmt = conn.prepareStatement(sql.toString());
-					
-					for (int memNo : memNos) {
-			        	 pstmt.setInt(1, memNo);
-			       
-			        	 pstmt.addBatch();
-			        	 pstmt.clearParameters(); // 파라미터 초기화
-			            
-			         }
-			         pstmt.executeBatch();
-			         pstmt.clearParameters(); // Batch 초기화
-			         
-			        	
-					
-				} catch (Exception e) {
-					throw e;
-				} finally {
-					try {
-						
-						if(rs != null) rs.close();
-						
-						if(pstmt != null) pstmt.close();
-						
-						if(conn != null) conn.close(); 
-					} catch (Exception e2) {
-						throw e2;
-					}
-				}
-				}
-			
-			// 회원 탈퇴 목록을 조회한다
+			}
+			// 게시글 목록을 조회한다
 						public ArrayList<MemberStateVo> selectMemberStateList(int startRow, int postSize) throws Exception {
 							ArrayList<MemberStateVo> boardstate = new ArrayList<MemberStateVo>();
 							Connection conn = null;
@@ -132,9 +69,9 @@ public class MemberStateDao {
 								conn = DBConn.getConnection();
 
 								StringBuffer sql = new StringBuffer();
-								sql.append("SELECT m.mb_nick, m.mb_state, s.ms_no, s.mb_no, s.ms_reason, s.ms_datetime   ");
-								sql.append("FROM member as m left join memberstate as s on m.mb_no = s.mb_no  ");
-								sql.append("ORDER BY s.ms_no DESC LIMIT ? OFFSET ?; ");
+								sql.append("SELECT ms_no, mb_no, ms_reason, ms_datetime   ");
+								sql.append("FROM memberstate  ");
+								sql.append("ORDER BY ms_no DESC LIMIT ? OFFSET ?; ");
 					
 								pstmt = conn.prepareStatement(sql.toString());
 								
@@ -144,16 +81,12 @@ public class MemberStateDao {
 								rs = pstmt.executeQuery();
 
 								while (rs.next()) {
+									int stateNo = rs.getInt(1);
+									int memNo = rs.getInt(1);
+									String reason = rs.getString(2);
+									String withdrawDate = rs.getString(4);
 									
-									String nick = rs.getString(1);
-									int state = rs.getInt(2);
-									int stateNo = rs.getInt(3);
-									int memNo = rs.getInt(4);
-									String reason = rs.getString(5);
-									String withdrawDate = rs.getString(6);
-									
-									
-									boardstate.add(new MemberStateVo(nick, state, stateNo, memNo, reason, withdrawDate));
+									boardstate.add(new MemberStateVo(stateNo, memNo, reason, withdrawDate));
 								}
 
 							} catch (Exception e) {
@@ -169,7 +102,7 @@ public class MemberStateDao {
 							return boardstate;
 						}
 						
-								// 탈퇴 회원 수를 구하다
+								// 총 멤버 수를 구하다
 								public int selectTotalMemberStateCount() throws Exception {
 									Connection conn = null;
 									Statement stmt = null;

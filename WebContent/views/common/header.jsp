@@ -32,18 +32,15 @@
 				</a>
 
 				<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-					<li><a href="#" class="nav-link px-2 link-dark">숙소리뷰</a></li>
+					<li><a href="${pageContext.request.contextPath}/listPost.do?boardNo=1" class="nav-link px-2 link-dark">숙소리뷰</a></li>
 					<li class="dropdown"><a href="#" class="nav-link px-2 link-dark dropdown-toggle"
 							id="dropdownBoard1" data-bs-toggle="dropdown" aria-expanded="false">숙소톡톡</a>
-
 						<ul class="dropdown-menu text-small" aria-labelledby="dropdownBoard1">
-							<c:url var="url" value="/views/common/templateLeftMenu.jsp">
-								<c:param name="nav" value="/views/boardLeftMenu" />
-								<c:param name="content" value="/views/boardList" />
-							</c:url>
-							<li><a class="dropdown-item" href="${url}">게시판명1</a></li>
+							<li><a class="dropdown-item" href="${pageContext.request.contextPath}/listPost.do?boardNo=2">게시판명1</a></li>
 							<li><a class="dropdown-item" href="#">게시판명2</a></li>
+							<li><a class="dropdown-item" href="${pageContext.request.contextPath}/listPost.do?boardNo=4">이벤트</a></li>
 						</ul>
+						
 					</li>
 				</ul>
 				<c:if test="${empty sessionScope.member.id}">

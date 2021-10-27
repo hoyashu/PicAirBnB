@@ -25,11 +25,6 @@ private static MemberStateService service;
 		memberStateDao.insertMemberState(memberStateVo);
 	}
 	
-	public void reviseMemberState(MemberStateVo memberStateVo) throws Exception{
-		MemberStateDao memberStateDao  = MemberStateDao.getInstance();
-		memberStateDao.updateMemberState(memberStateVo);
-	}
-	
 	public ArrayList<MemberStateVo> retrieveMemberStateList(int startRow, int postSize) throws Exception{
 		MemberStateDao memberstateDao = MemberStateDao.getInstance();
 		return memberstateDao.selectMemberStateList(startRow, postSize);
