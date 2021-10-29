@@ -42,6 +42,7 @@ public class ListPostCommand implements Command {
 		} catch (Exception e) {
 			HttpSession session = req.getSession();
 			boardNo =  Integer.parseInt(session.getAttribute("boardNo_MOD").toString());
+			
 			session.removeAttribute("boardNo_MOD");
 		}
 		

@@ -43,9 +43,11 @@
         <div class="mb-3">
         	<h4>성별</h4>
             <div class="form-check">
-                <input id="M" name="paymentMethod" type="radio" class="form-check-input" name="gender" 
+                <input id="M" name="gender" type="radio" class="form-check-input"
                 value="M"><label class="form-check-label" for="M">남성</label>
-                <input id="F" name="paymentMethod" type="radio" class="form-check-input" name="gender" 
+            </div>
+            <div class="form-check">
+                <input id="F" name="gender" type="radio" class="form-check-input"
                 value="F"><label class="form-check-label" for="F">여성</label>
             </div>
         </div>

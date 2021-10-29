@@ -12,14 +12,8 @@ pageContext.setAttribute("realTimeMemberIds", RealTime.memberIds);
 
 <div id="side-title">숙소톡톡</div>
 <ul class="board-list-menu">
-	<li><c:url var="url" value="/uesrTemplateLeftMenu.jsp">
-			<c:param name="nav" value="/introLeft" />
-			<c:param name="content" value="/intro" />
-		</c:url> <a href="${url}"> 게시판 주소 </a></li>
-	<li><c:url var="url" value="/uesrTemplateLeftMenu.jsp">
-			<c:param name="nav" value="/introLeft" />
-			<c:param name="content" value="/intro" />
-		</c:url> <a href="${url}"> 게시판 주소 </a></li>
+	<li><a href="${pageContext.request.contextPath}/listPost.do?boardNo=3">숙소 사진전</a></li>
+	<li><a href="${pageContext.request.contextPath}/listPost.do?boardNo=4">이벤트</a></li>
 </ul>
 
 <div class="now-connetion-member">

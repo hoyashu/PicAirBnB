@@ -17,6 +17,7 @@ public class CancelPostCommand implements Command {
 		int no = Integer.parseInt(req.getParameter("no"));
 		//파일 삭제
 		PostService postService = PostService.getInstance();
+		System.out.println("no"+no);
 		postService.removePost(no);
 		
 		HttpSession session = req.getSession();

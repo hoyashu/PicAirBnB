@@ -23,9 +23,10 @@ public class WritePostFormCommand implements Command {
 		int defaultListNo = Integer.parseInt(req.getParameter("boardNo"));
 		
 		HashMap<Integer,String> boardList = new HashMap<Integer,String>();
-		boardList.put(1,"서울지역 숙소");
-		boardList.put(2,"숙소여기어떄?");
-		boardList.put(3,"호스트와 함께했어요");
+		boardList.put(1,"숙소리뷰");
+		boardList.put(2,"숙소추천");
+		boardList.put(3,"숙소 사진전");
+		boardList.put(4,"이벤트");
 				
 		// request 영역에 디폴트 게시판 정보를 저장한다.
 		req.setAttribute("defaultListNo", defaultListNo);
