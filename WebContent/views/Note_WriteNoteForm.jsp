@@ -3,7 +3,7 @@
 <%@ page import="java.util.*, domain.LogrecordVo"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-
+<div class="container">
 <h3 class="page-title">쪽지 쓰기</h3>
 <button type="button" onclick="location.href='${pageContext.request.contextPath}/Note_ReceiveList.do'" class="btn btn-secondary">받은 쪽지</button>
 <button type="button" onclick="location.href='${pageContext.request.contextPath}/Note_SendList.do'" class="btn btn-secondary">보낸 쪽지</button>
@@ -20,3 +20,4 @@
 	</div>
 	<button type="submit" class="btn btn-primary">전송</button>
 </form>
+</div>

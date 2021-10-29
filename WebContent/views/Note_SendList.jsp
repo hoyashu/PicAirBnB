@@ -3,7 +3,7 @@
 <%@ page import="java.util.*, domain.NoteVo, model.dao.note.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<div class="container">
 <script>
 	$(document).ready(function(){
 		$('#removeBtn').on('click',function(){
@@ -40,7 +40,7 @@
 <a href="${pageContext.request.contextPath}/Note_SendList.do">보낸 쪽지</a>
 <a href="${pageContext.request.contextPath}/Note_SaveList.do">보관함</a>
 
-<table>
+<table class="table table-bordered table-striped table-condensed flip-content">
 	<thead>
 	<tr>
 		<th></th><th>내용</th><th>받는 사람</th><th>발송날짜</th>
@@ -109,4 +109,4 @@
 		</c:url>
 		<a href="${nextUrl }">[Next]</a>
 	</c:if>
-</div>
+</div></div>

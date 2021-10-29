@@ -36,8 +36,8 @@
 					<li class="dropdown"><a href="#" class="nav-link px-2 link-dark dropdown-toggle"
 							id="dropdownBoard1" data-bs-toggle="dropdown" aria-expanded="false">숙소톡톡</a>
 						<ul class="dropdown-menu text-small" aria-labelledby="dropdownBoard1">
-							<li><a class="dropdown-item" href="${pageContext.request.contextPath}/listPost.do?boardNo=2">게시판명1</a></li>
-							<li><a class="dropdown-item" href="#">게시판명2</a></li>
+							<li><a class="dropdown-item" href="${pageContext.request.contextPath}/listPost.do?boardNo=2">숙소 추천</a></li>
+							<li><a class="dropdown-item" href="${pageContext.request.contextPath}/listPost.do?boardNo=3">숙소 사진전</a></li>
 							<li><a class="dropdown-item" href="${pageContext.request.contextPath}/listPost.do?boardNo=4">이벤트</a></li>
 						</ul>
 						
@@ -59,9 +59,9 @@
 							<div id="alarm-box" class='dropdown-menu text-small' aria-labelledby='dropdownAlarmList'>
 							</div>
 						</li>
-						<li><a href="${pageContext.request.contextPath}/Note_ReceiveList.jsp"
-								class="nav-link px-2 link-dark user-note">쪽지<span class="notion"><i
-									class="ico">3</i></span></a></li>
+						<li><a href="${pageContext.request.contextPath}/Note_ReceiveList.do"
+								class="nav-link px-2 link-dark user-note">쪽지<span class="notion"><!-- <i
+									class="ico">3</i> --></span></a></li>
 					</ul>
 					<div class="dropdown text-end">
 						<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUserMenu"
