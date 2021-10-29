@@ -38,9 +38,9 @@ public class SendMemberMailCommand extends HttpServlet {
 		try {
 
 			MemberService service = MemberService.getInstance();
-			boolean idOverlap = service.retrieveMailOverlapMember(id);
+			int idOverlap = service.retrieveMailOverlapMember(id);
 
-			if (idOverlap == false) {
+			if (idOverlap == 0) {
 				result = 1;
 			} else {
 				//인증번호 생성

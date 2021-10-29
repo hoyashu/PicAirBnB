@@ -21,54 +21,54 @@ public class MemberService {
 		return service;
 	}
 
-	// ï¿½ì‰¶ï¿½ì ï¿½ë²‘æ¿¡ï¿½
+	// È¸¿ø µî·Ï
 	public void registerMember(MemberVo member) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		memberDao.insertMember(member);
 	}
 
-	// æ¿¡ì’“ë ‡ï¿½ì”¤
+	// ·Î±×ÀÎ
 	public MemberVo loginMember(String id, String pwd) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.loginMember(id, pwd);
 	}
 
-	// ï¿½ë¸˜ï¿½ì” ï¿½ëµ’ ï§¡ì–˜ë¦°
+	// ¾ÆÀÌµğ Ã£±â
 	public List<MemberVo> retrieveMemberId(String name, String birth) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectNBMemberList(name, birth);
 	}
 
-	// ï¿½ì‰¶ï¿½ì è¸°ëŠìƒ‡æ¿¡ï¿½ ï§ï¿½ï¿½ì ™ï¿½ë§‚ ï¿½ì‰¶ï¿½ìè¸°ëŠìƒ‡ï¿½ì“½ ï¿½ëœ²ï¿½ì” ï¿½ê½£ç‘œï¿½ è­°ê³ ì‰¶ï¿½ë¸³ï¿½ë–. 
+	// È¸¿ø ¹øÈ£·Î ÁöÁ¤µÈ È¸¿ø¹øÈ£ÀÇ µ¥ÀÌÅÍ¸¦ Á¶È¸ÇÑ´Ù.
 	public MemberVo retrieveMember(int memNo) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectMember(memNo);
 	}
 
-	// ï¿½ì—¯ï¿½ì °ï¿½ë¸³ ï¿½ë•³ï¿½ê½•ï¿½ì—«ï¿½ì”  ä»¥ë¬ë‚¬ï¿½ì”¤ï§ï¿½ è­°ê³ ì‰¶ï¿½ë¸³ï¿½ë–.
+	// ÀÔ·ÂÇÑ ´Ğ³×ÀÓÀÌ Áßº¹ÀÎÁö Á¶È¸ÇÑ´Ù.
 	public int retrieveNickOverlapMember(String nick) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectNickOverlapMember(nick);
 	}
 
-	// ï¿½ì—¯ï¿½ì °ï¿½ë¸³ ï¿½ë¸˜ï¿½ì” ï¿½ëµ’ï¿½ì“½ ï¿½ì‰¶ï¿½ìï¿½ì”  è­°ëŒì˜±ï¿½ë¸¯ï¿½ë’—ï§ï¿½ ï¿½ì†—ï¿½ì”¤ï¿½ë¸³ï¿½ë–.
+	// ÀÔ·ÂÇÑ ¾ÆÀÌµğÀÇ È¸¿øÀÌ Á¸ÀçÇÏ´ÂÁö È®ÀÎÇÑ´Ù.
 	public int retrieveMailOverlapMember(String id) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectEmailOverlapMember(id);
 	}
 
-	// ï¿½ì‰¶ï¿½ì ï¿½ìŸ¾ï§£ëŒâ€œï¿½ì‰¶
+	// È¸¿ø ÀüÃ¼Á¶È¸
 	public ArrayList<MemberVo> retrieveMemberList(int startRow, int postSize) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		return memberDao.selectMemberList(startRow, postSize);
 	}
 
-	// ï¿½ì‰¶ï¿½ì ï¿½ë‹” è­°ê³ ì‰¶
+	// È¸¿ø ¼ö Á¶È¸
 	public int retrieveTotalMemberCount() throws Exception {
 		return MemberDao.getInstance().selectTotalMemberCount();
 	}
-  
-	// ï¿½ì‰¶ï¿½ì ï¿½ë‹”ï¿½ì ™
+
+	// È¸¿ø ¼öÁ¤
 	public void reviseMember(MemberVo member) throws Exception {
 		MemberDao memberDao = MemberDao.getInstance();
 		memberDao.updateMember(member);
