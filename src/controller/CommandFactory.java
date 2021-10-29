@@ -9,163 +9,163 @@ public class CommandFactory {
 	private Map<String, String> map = new HashMap<String, String>();
 
 	private CommandFactory() {
-		// ******** íšŒì› ********//
-		// íšŒì› ë“±ë¡ í¼ ìš”ì²­
+		// ******** È¸¿ø ********//
+		// È¸¿ø µî·Ï Æû ¿äÃ»
 		map.put("/member_writeForm.do", "controller.member.WriteMemberFormCommand");
 
-		// íšŒì› ë“±ë¡ ìš”ì²­
+		// È¸¿ø µî·Ï ¿äÃ»
 		map.put("/member_write.do", "controller.member.WriteMemberCommand");
 
-    // ì¤‘ë³µ ì•„ì´ë”” ì²´í¬
+    // Áßº¹ ¾ÆÀÌµğ Ã¼Å©
 		map.put("/member_idCheck.do", "controller.member.IdCheckMemberCommand");
 		
-		// ì¤‘ë³µ ë‹‰ë„¤ì„ ì²´í¬
+		// Áßº¹ ´Ğ³×ÀÓ Ã¼Å©
 		map.put("/member_nickCheck.do", "controller.member.NickCheckMemberCommand");
     
-		// ë¡œê·¸ì¸ ìš”ì²­
+		// ·Î±×ÀÎ ¿äÃ»
 		map.put("/member_login.do", "controller.member.LoginMemberCommand");
 
-		// ë¡œê·¸ì•„ì›ƒ ìš”ì²­
+		// ·Î±×¾Æ¿ô ¿äÃ»
 		map.put("/member_logout.do", "controller.member.LogoutMemberCommand");
 
-		// íšŒì›ëª©ë¡ ì¡°íšŒ ìš”ì²­
+		// È¸¿ø¸ñ·Ï Á¶È¸ ¿äÃ»
 		map.put("/member_allList.do", "controller.member.AllMemberListCommand");
 
-		// íƒˆí‡´íšŒì› ëª©ë¡ ì¡°íšŒ ìš”ì²­
+		// Å»ÅğÈ¸¿ø ¸ñ·Ï Á¶È¸ ¿äÃ»
 		map.put("/member_withdrawList.do", "controller.member.WithdrawMemberListCommand");
 
-		// ì•„ì´ë”” ì°¾ê¸°
+		// ¾ÆÀÌµğ Ã£±â
 		map.put("/member_findId.do", "controller.member.FindIdMemberCommand");
 
-		// ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° ì¸ì¦ ë©”ì¼ ë°œì†¡
+		// ºñ¹Ğ¹øÈ£ Ã£±â ÀÎÁõ ¸ŞÀÏ ¹ß¼Û
 		map.put("/member_sendCertifyCode.do", "controller.member.SendMemberMailCommand");
 
-		// íšŒì› ì •ë³´ ìˆ˜ì • í¼ ìš”ì²­
+		// È¸¿ø Á¤º¸ ¼öÁ¤ Æû ¿äÃ»
 		map.put("/member_detailForm.do", "controller.member.ModifyMemberFormCommand");
 
-		// íšŒì› ì •ë³´ ìˆ˜ì • ìš”ì²­
+		// È¸¿ø Á¤º¸ ¼öÁ¤ ¿äÃ»
 		map.put("/member_modify.do", "controller.member.ModifyMemberCommand");
 
-		// íšŒì› íƒˆí‡´ í¼ ìš”ì²­
+		// È¸¿ø Å»Åğ Æû ¿äÃ»
 		map.put("/member_withdrawForm.do", "controller.member.WithdrawMemberFormCommand");
 
-		// íšŒì› íƒˆí‡´ ìš”ì²­
+		// È¸¿ø Å»Åğ ¿äÃ»
 		map.put("/member_withdraw.do", "controller.member.WithdrawMemberCommand");
 
-		// ******** ê²Œì‹œíŒ ********//
-		// ê²Œì‹œíŒ ì“°ê¸° í¼ ìš”ì²­
+		// ******** °Ô½ÃÆÇ ********//
+		// °Ô½ÃÆÇ ¾²±â Æû ¿äÃ»
 		map.put("/writeBoardForm.do", "controller.WriteBoardFormCommand");
 
-		// ê²Œì‹œíŒ ê´€ë¦¬í˜ì´ì§€ ìš”ì²­
+		// °Ô½ÃÆÇ °ü¸®ÆäÀÌÁö ¿äÃ»
 		map.put("/listBoard.do", "controller.board.ListBoardCommand");
 
-		// ê²Œì‹œíŒ ì½ê¸° ìš”ì²­
+		// °Ô½ÃÆÇ ÀĞ±â ¿äÃ»
 		map.put("/detailBoard.do", "controller.DetailBoardCommand");
 
-		// ê²Œì‹œíŒ ê·¸ë£¹ ê´€ë¦¬í˜ì´ì§€ ìš”ì²­
+		// °Ô½ÃÆÇ ±×·ì °ü¸®ÆäÀÌÁö ¿äÃ»
 		map.put("/listBoardGroup.do", "controller.board.ListBoardGroupCommand");
 
-		// ******** ê²Œì‹œê¸€ ********//
-		// ê²Œì‹œê¸€ ë¦¬ìŠ¤íŠ¸ ìš”ì²­
+		// ******** °Ô½Ã±Û ********//
+		// °Ô½Ã±Û ¸®½ºÆ® ¿äÃ»
 		map.put("/listPost.do", "controller.board.ListPostCommand");
 
-		// ê²Œì‹œê¸€ ì‘ì„± í¼ ìš”ì²­
+		// °Ô½Ã±Û ÀÛ¼º Æû ¿äÃ»
 		map.put("/writePostForm.do", "controller.board.WritePostFormCommand");
 
-		// ê²Œì‹œê¸€ ìƒì„¸ë³´ê¸° ìš”ì²­
+		// °Ô½Ã±Û »ó¼¼º¸±â ¿äÃ»
 		map.put("/detailPost.do", "controller.board.DetailPostCommand");
 
-		// ê²Œì‹œê¸€ ìˆ˜ì • í¼ ìš”ì²­
+		// °Ô½Ã±Û ¼öÁ¤ Æû ¿äÃ»
 		map.put("/modifyPostForm.do", "controller.board.ModifyPostFormCommand");
 
-		// ì²¨ë¶€ íŒŒì¼ ì‚­ì œ ìš”ì²­
+		// Ã·ºÎ ÆÄÀÏ »èÁ¦ ¿äÃ»
 		map.put("/cancelPostAttach.do", "controller.board.CancelPostAttachCommand");
 
-		// ê²Œì‹œê¸€ ì‚­ì œ ìš”ì²­
+		// °Ô½Ã±Û »èÁ¦ ¿äÃ»
 		map.put("/cancelPost.do", "controller.board.CancelPostCommand");
 
-		// ëŒ“ê¸€ ë“±ë¡
+		// ´ñ±Û µî·Ï
 		map.put("/addComment.do", "controller.board.AddCommentCommand");
 
-		// ëŒ“ê¸€ ìˆ˜ì •
+		// ´ñ±Û ¼öÁ¤
 		map.put("/modifyComment.do", "controller.board.ModifyCommentCommand");
 
-		// ëŒ“ê¸€ ì‚­ì œ
+		// ´ñ±Û »èÁ¦
 		map.put("/removeComment.do", "controller.board.RemoveCommentCommand");
 
-		// ******** í†µê³„ ********//
-		// ë©¤ë²„ ë¡œê·¸ ë¦¬ìŠ¤íŠ¸ ìš”ì²­
+		// ******** Åë°è ********//
+		// ¸â¹ö ·Î±× ¸®½ºÆ® ¿äÃ»
 		map.put("/MemberLog_List.do", "controller.statistic.ListMemberLogCommand");
 
-		// ë©¤ë²„ ë¡œê·¸ ê·¸ë˜í”„ í¼ ìš”ì²­
+		// ¸â¹ö ·Î±× ±×·¡ÇÁ Æû ¿äÃ»
 		map.put("/MemberLog_WeeklyGraphForm.do", "controller.statistic.ListMemberLogWeeklyGraphFormCommand");
 
-		// ë©¤ë²„ ë¡œê·¸ ê·¸ë˜í”„ ìš”ì²­
+		// ¸â¹ö ·Î±× ±×·¡ÇÁ ¿äÃ»
 		map.put("/MemberLog_WeeklyGraph.do", "controller.statistic.ListMemberLogWeeklyGraphCommand");
 
-		// ******** ìª½ì§€ ********//
-		// ìª½ì§€ ì“°ê¸° í¼ ìš”ì²­
+		// ******** ÂÊÁö ********//
+		// ÂÊÁö ¾²±â Æû ¿äÃ»
 		map.put("/Note_WriteNoteForm.do", "controller.note.WriteNoteFormCommand");
 
-		// ìª½ì§€ ì“°ê¸° ìš”ì²­
+		// ÂÊÁö ¾²±â ¿äÃ»
 		map.put("/Note_WriteNote.do", "controller.note.WriteNoteCommand");
 
-		// ë°›ì€ ìª½ì§€ ë¦¬ìŠ¤íŠ¸ ì¡°íšŒ
+		// ¹ŞÀº ÂÊÁö ¸®½ºÆ® Á¶È¸
 		map.put("/Note_ReceiveList.do", "controller.note.ListReceiveNoteCommand");
 
-		// ë³´ë‚¸ ìª½ì§€ ë¦¬ìŠ¤íŠ¸ ì¡°íšŒ
+		// º¸³½ ÂÊÁö ¸®½ºÆ® Á¶È¸
 		map.put("/Note_SendList.do", "controller.note.ListSendNoteCommand");
 
-		// ë³´ê´€í•¨ ë¦¬ìŠ¤íŠ¸ ì¡°íšŒ
+		// º¸°üÇÔ ¸®½ºÆ® Á¶È¸
 		map.put("/Note_SaveList.do", "controller.note.ListSaveNoteCommand");
 
-		// ìª½ì§€ ìƒì„¸ ì¡°íšŒ
+		// ÂÊÁö »ó¼¼ Á¶È¸
 		map.put("/Note_DetailNote.do", "controller.note.DetailNoteCommand");
 
-		// ì„ íƒí•œ ìª½ì§€ ì‚­ì œ
+		// ¼±ÅÃÇÑ ÂÊÁö »èÁ¦
 		map.put("/Note_CancelReceiveNote.do", "controller.note.RemoveReceiveNoteCommand");
 
-		// ë³´ê´€í•¨ ìª½ì§€ ì‚­ì œ
+		// º¸°üÇÔ ÂÊÁö »èÁ¦
 		map.put("/Note_CancelSaveNote.do", "controller.note.RemoveSaveNoteCommand");
 
-		// ë³´ê´€í•¨ì— ì €ì¥
+		// º¸°üÇÔ¿¡ ÀúÀå
 		map.put("/Note_ModifyNoteSave.do", "controller.note.ModifyNoteSaveCommand");
 
-		// ë³´ê´€í•¨ ìª½ì§€ ìƒì„¸ ì¡°íšŒ
+		// º¸°üÇÔ ÂÊÁö »ó¼¼ Á¶È¸
 		map.put("/Note_DetailSaveNote.do", "controller.note.DetailSaveNoteCommand");
 
-		// ******** ì´ë²¤íŠ¸ ********//
-		// ì´ë²¤íŠ¸ ëª©ë¡ ì¡°íšŒ
+		// ******** ÀÌº¥Æ® ********//
+		// ÀÌº¥Æ® ¸ñ·Ï Á¶È¸
 		map.put("/EventList.do", "controller.event.ListEventCommand");
 
-		// ******** ì•Œë¦¼ ********//
-		// ì•Œë¦¼ ë°œì†¡
+		// ******** ¾Ë¸² ********//
+		// ¾Ë¸² ¹ß¼Û
 		map.put("/SendAlarm.do", "controller.alarm.WriteAlarmCommand");
 
-		// íšŒì›ë³„ ì½ì§€ ì•Šì€ ì•Œë¦¼ ê°œìˆ˜ ì¡°íšŒ
+		// È¸¿øº° ÀĞÁö ¾ÊÀº ¾Ë¸² °³¼ö Á¶È¸
 		map.put("/AlarmNoReadCount.do", "controller.alarm.CountNoReadAlarmCommand");
 
-		// íšŒì›ë³„ ì•Œë¦¼ ëª©ë¡ ì¡°íšŒ
+		// È¸¿øº° ¾Ë¸² ¸ñ·Ï Á¶È¸
 		map.put("/AlarmList.do", "controller.alarm.ListAlarmCommand");
 
-		// íšŒì›ë³„ ì•Œë¦¼ ì„ íƒ ì‚­ì œ
+		// È¸¿øº° ¾Ë¸² ¼±ÅÃ »èÁ¦
 		map.put("/AlarmDelete.do", "controller.alarm.CancelAlarmCommand");
 
-		// íšŒì›ë³„ ì•Œë¦¼ ì „ì²´ ì‚­ì œ
+		// È¸¿øº° ¾Ë¸² ÀüÃ¼ »èÁ¦
 		map.put("/AlarmAllDelete.do", "controller.alarm.CancelAllAlarmCommand");
 
 	}
 
-	// ì™¸ë¶€ì—ì„œ ì¤‘ë³µëœ ìƒì„±ìë¥¼ ë§Œë“œëŠ” ê²ƒì„ ë°©ì§€í•˜ê¸° ìœ„í•´ì„œ ì‹±ê¸€í†¤ ì‘ì„±
+	// ¿ÜºÎ¿¡¼­ Áßº¹µÈ »ı¼ºÀÚ¸¦ ¸¸µå´Â °ÍÀ» ¹æÁöÇÏ±â À§ÇØ¼­ ½Ì±ÛÅæ ÀÛ¼º
 	public static CommandFactory getInstance() {
 		if (factory == null) {
 			factory = new CommandFactory();
 		}
-		// CommandFactory()ì—ì„œ ë§Œë“¤ì–´ì§„ mep.putë“¤ì´ ì „ë‹¬ë¨
+		// CommandFactory()¿¡¼­ ¸¸µé¾îÁø mep.putµéÀÌ Àü´ŞµÊ
 		return factory;
 	}
 
-	/* CommandFactory()ì˜ mapì— /writeBoard.do ì• ë¥¼ ì²˜ë¦¬í•  í´ë˜ìŠ¤ê°€ ìˆëŠ”ì§€ í™•ì¸í•œë‹¤. */
+	/* CommandFactory()ÀÇ map¿¡ /writeBoard.do ¾Ö¸¦ Ã³¸®ÇÒ Å¬·¡½º°¡ ÀÖ´ÂÁö È®ÀÎÇÑ´Ù. */
 	public Command createCommand(String commandURI) throws Exception {
 		String commandClass = map.get(commandURI);
 
@@ -176,12 +176,12 @@ public class CommandFactory {
 		try {
 			Class<?> cls = Class.forName(commandClass);
 
-			// class í´ë˜ìŠ¤ì˜ ìƒì„±ìë¥¼ ì·¨ë“í•œë‹¤.
+			// class Å¬·¡½ºÀÇ »ı¼ºÀÚ¸¦ ÃëµæÇÑ´Ù.
 			Constructor<?> constructor = cls.getConstructor(null);
 			System.out.println("constructor:" + constructor);
 
-			// ìƒì„±ìë¥¼ í†µí•´ newInstance í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ì—¬ Node ì¸ìŠ¤í„´ìŠ¤ë¥¼ ìƒì„±í•œë‹¤
-			Command command = (Command) constructor.newInstance();// ë‹¤í˜•ì„±
+			// »ı¼ºÀÚ¸¦ ÅëÇØ newInstance ÇÔ¼ö¸¦ È£ÃâÇÏ¿© Node ÀÎ½ºÅÏ½º¸¦ »ı¼ºÇÑ´Ù
+			Command command = (Command) constructor.newInstance();// ´ÙÇü¼º
 			return command;
 
 		} catch (Exception e) {
